@@ -7,10 +7,10 @@ import { IconContract, IconDevelopment, IconPaint, IconVector } from "./miracle-
 import SectionHeader from "./section-header";
 
 const info = {
-    title: "SERVICES WE PROVIDE",
+    title: "SERVICES",
     subtitle: (
         <>
-            Expertise in Websites, Products,{" "}<br className="md:hidden" />and Brand Identity
+            Building Websites, Products,{" "}<br className="md:hidden" />and Identity
         </>
     ),
 };

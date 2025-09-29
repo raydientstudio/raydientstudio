@@ -38,31 +38,31 @@ export default function MainFooter() {
         {
             title: "Company",
             links: [
-                { name: "Architecture", href: "/", external: false, icon: null },
-                { name: "Studio", href: "/", external: false, icon: null },
+                { name: "Architecture", href: "/architecture", external: false, icon: null },
+                { name: "Studio", href: "/docs/studio", external: false, icon: null },
                 { name: "Foundation", href: "/docs/foundation", external: false, icon: null },
-                { name: "Brands", href: "/", external: false, icon: null },
+                { name: "Brands", href: "/docs/brand-assets", external: false, icon: null },
                 { name: "Partnership", href: "/docs/partnership-policy", external: false, icon: null },
-                { name: "Portfolio", href: "/", external: false, icon: null },
-                { name: "Testimonials", href: "/docs/brand-assets", external: false, icon: null },
+                { name: "Portfolio", href: "/portfolio", external: false, icon: null },
+                { name: "Testimonials", href: "/", external: false, icon: null },
             ],
         },
         {
             title: "Community",
             links: [
-                { name: "Fellowship", href: "https://medium.com/@raydientstudio", external: true, icon: null },
-                { name: "Events", href: "/", external: false, icon: null },
+                { name: "Community", href: "https://medium.com/@raydientstudio", external: true, icon: null },
+                { name: "Events", href: "/events", external: false, icon: null },
                 { name: "Updates", href: "https://x.com/raydientstudio", external: true, icon: null },
-                { name: "FAQ's", href: "#faqs", external: false, icon: null },
+                { name: "FAQ's", href: "/", external: false, icon: null },
                 { name: "Advisory", href: "/docs/support", external: false, icon: null },
-                { name: "Careers", href: "/", external: false, icon: null },
+                { name: "Careers", href: "/docs/careers", external: false, icon: null },
                 { name: "Get in touch", href: "/docs/contact-us", external: false, icon: null }
             ],
         },
         {
             title: "Resources",
             links: [
-                { name: "References", href: "/", external: false, icon: null },
+                { name: "References", href: "/docs/references", external: false, icon: null },
                 { name: "Docs", href: "/docs", external: false, icon: null },
                 { name: "Guides", href: "/docs/guide", external: false, icon: null },
                 { name: "Help", href: "/docs/help", external: false, icon: null },

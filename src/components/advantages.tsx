@@ -4,10 +4,10 @@ import { IconShield, IconPartnership, IconDesign, IconFuture } from "./miracle-u
 import SectionHeader from "./section-header";
 
 const info = {
-    title: "ADVANTAGES WE’VE GAINED",
+    title: "ADVANTAGES",
     subtitle: (
         <>
-            Ensuring Your Success Doesn’t{" "}<br className="md:hidden" />End at Launch
+            Your Success Beyond{" "}<br className="md:hidden" />Launch
         </>
     ),
 };

@@ -8,7 +8,7 @@ const info = {
     title: "FEATURED PROJECTS",
     subtitle: (
         <>
-            Highlighting our Standout Designs{" "}<br className="md:hidden" />and Brand Solutions
+            Showcasing Our Design{" "}<br className="md:hidden" />Excellence
         </>
     ),
 };
