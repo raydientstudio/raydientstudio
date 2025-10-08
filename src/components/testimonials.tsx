@@ -16,13 +16,13 @@ const info = {
 
 const reviews = [
     {
-        name: "Jack",
-        username: "@jack",
+        name: "Sheikh Abdul Aziz",
+        username: "@sheikhabdulaziz",
         thread: "I've never seen anything like this before. It's amazing. I love it.",
-        personalPicture: "https://avatar.vercel.sh/jack",
+        personalPicture: "https://github.com/sheikh-abdul-aziz.png",
         timeline: "2h ago",
         organisationPicture: "Vercel",
-        isOrganisation: true,
+        isOrganisation: false,
         goldenTick: "https://vercel.com/favicon.ico",
         blueTick: "https://vercel.com/favicon.ico",
         platform: "web",

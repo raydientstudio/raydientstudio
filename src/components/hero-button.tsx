@@ -14,6 +14,8 @@ export const HeroButton = memo(
         onClick: () => void;
         variant:
         | "alert"
+        | "primary"
+        | "secondary"
         | "destructive"
         | "elevated"
         | "filled"

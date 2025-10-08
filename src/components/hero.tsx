@@ -16,6 +16,11 @@ const items = {
 };
 
 export default function Hero() {
+
+    // --- Constants ---
+    const SHOP = "/shop";
+    const DOCS = "/docs";
+
     // --- Hooks ---
     const router = useRouter();
 
@@ -49,11 +54,11 @@ export default function Hero() {
 
                     {/* Action Buttons */}
                     <div className="flex flex-row overflow-visible justify-start md:justify-center items-start md:items-center gap-x-4 md:gap-x-6">
-                        <HeroButton onClick={() => navigateTo("/shop")} variant="filled" size="default" radius="medium">
+                        <HeroButton onClick={() => navigateTo(SHOP)} variant={"primary"} size={"default"} radius={"small"}>
                             <IconSparkles />
                             {items.primary}
                         </HeroButton>
-                        <HeroButton onClick={() => navigateTo("/docs")} variant="outlined" size="default" radius="medium">
+                        <HeroButton onClick={() => navigateTo(DOCS)} variant={"secondary"} size={"default"} radius={"small"}>
                             {items.secondary}
                             <IconChevronRight />
                         </HeroButton>

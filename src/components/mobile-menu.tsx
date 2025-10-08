@@ -93,6 +93,9 @@ export function useMobileMenu() {
 
 export default function MobileMenu() {
 
+    const SIGNUP = "/signup";
+    const LOGIN = "/login";
+
     const router = useRouter();
 
     const { isMaintenance, toggleMaintenance } = useSettings();
@@ -122,10 +125,10 @@ export default function MobileMenu() {
                 {isMenuOpen && (
                     <motion.div key="mobile-drawer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.150, ease: "easeInOut" }} className="z-20 flex flex-col fixed left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-background text-foreground px-4 py-4 gap-y-3">
                         <div className="flex flex-col items-center justify-between gap-y-4">
-                            <Button onClick={() => navigateTo("/signup")} variant="filled" size="wide" radius={"medium"}>
+                            <Button onClick={() => navigateTo(SIGNUP)} variant={"primary"} size={"wide"} radius={"small"}>
                                 Signup
                             </Button>
-                            <Button onClick={() => navigateTo("/login")} variant="outlined" size="wide" radius={"medium"}>
+                            <Button onClick={() => navigateTo(LOGIN)} variant={"secondary"} size={"wide"} radius={"small"}>
                                 Login
                             </Button>
                         </div>
