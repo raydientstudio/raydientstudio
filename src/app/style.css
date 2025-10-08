@@ -1,7 +1,6 @@
+/* Define CSS variables for the theme */
 @import 'tailwindcss';
 @import 'tw-animate-css';
-
-/* Define CSS variables for the theme */
 
 /* This is the default root theme */
 :root {
