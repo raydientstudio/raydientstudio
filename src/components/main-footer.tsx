@@ -121,9 +121,9 @@ export default function MainFooter() {
                                     {section.links.map(({ name, href, external, icon }) => (
                                         <li key={name}>
                                             {external ? (
-                                                <a href={href} className="antialiased flex items-center justify-start text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                                <Link href={href} className="antialiased flex items-center justify-start text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
                                                     {name} {icon}
-                                                </a>
+                                                </Link>
                                             ) : (
                                                 <Link href={href} className="antialiased flex items-center justify-start text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
                                                     {name} {icon}
@@ -181,9 +181,9 @@ export default function MainFooter() {
                                 {quickLinks[0].links.map(({ name, href, external }) => (
                                     <p key={name}>
                                         {external ? (
-                                            <a href={href} className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
+                                            <Link href={href} className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
                                                 {name}
-                                            </a>
+                                            </Link>
                                         ) : (
                                             <Link href={href} className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
                                                 {name}

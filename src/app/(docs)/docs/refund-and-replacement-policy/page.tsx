@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { FlexLayout } from "@/components/layout/flex-layout";
+import Link from "next/link";
 
 const RouterButton = ({
     onClick,
@@ -71,7 +72,7 @@ export default function RefundAndReplacementPolicy() {
                     <br />
                     Business Name: Raydient Studio (hereinafter referred to as “Raydient Studio,” “we,” “us,” or “our”)
                     <br />
-                    Website: <a href="https://raydientstudio.com" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">raydientstudio.com</a>
+                    Website: <Link href="https://raydientstudio.com" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">raydientstudio.com</Link>
                 </p>
 
                 {/* 1. Revision Policy */}
@@ -116,7 +117,7 @@ export default function RefundAndReplacementPolicy() {
                 <p>
                     To request a refund under exceptional eligibility, please email:
                     <br />
-                    <strong>Email:</strong> <a href="mailto:issue@raydientstudio.com" className="text-blue-600 underline">issue@raydientstudio.com</a>
+                    <strong>Email:</strong> <Link href="mailto:issue@raydientstudio.com" className="text-blue-600 underline">issue@raydientstudio.com</Link>
                 </p>
                 <p>Include the following:</p>
                 <ul className="list-disc list-inside space-y-1">

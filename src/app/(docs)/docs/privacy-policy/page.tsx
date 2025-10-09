@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { FlexLayout } from "@/components/layout/flex-layout";
+import Link from "next/link";
 
 const RouterButton = ({
     onClick,
@@ -132,7 +133,7 @@ export default function PrivacyPolicy() {
                     <li>Request deletion of your data (subject to legal requirements)</li>
                     <li>Withdraw consent for marketing communications</li>
                 </ul>
-                <p>To exercise these rights, contact us at <a href="mailto:info@raydientstudio.com" className="text-blue-600 underline">info@raydientstudio.com</a>.</p>
+                <p>To exercise these rights, contact us at <Link href="mailto:info@raydientstudio.com" className="text-blue-600 underline">info@raydientstudio.com</Link>.</p>
 
                 <h3 className="text-xl font-semibold mt-6">6. Cookies Policy</h3>
 
@@ -182,7 +183,7 @@ export default function PrivacyPolicy() {
                 <p>
                     For privacy-related concerns:
                     <br />
-                    Email: <a href="mailto:info@raydientstudio.com" className="text-blue-600 underline">info@raydientstudio.com</a>
+                    Email: <Link href="mailto:info@raydientstudio.com" className="text-blue-600 underline">info@raydientstudio.com</Link>
                     <br />
                     Business Name: Raydient Studio™
                     <br />

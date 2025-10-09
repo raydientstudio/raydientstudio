@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import SectionHeader from "./section-header";
-import { PortfolioCard } from "./portfolio-card";
+import SectionHeader from "./(home)/section-header";
+import { PortfolioCard } from "./(home)/portfolio-card";
 
 const info = {
     title: "RECENT PROJECTS",

@@ -20,9 +20,9 @@ import {
 	SearchList,
 	SearchSeparator,
 	SearchShortcut,
-} from "./ui/search";
-import { Button } from "./ui/button";
-import { useMobileMenu } from "./mobile-menu";
+} from "../ui/search";
+import { Button } from "../ui/button";
+import { useMobileMenu } from "../mobile-menu";
 
 export default function Search() {
 	const [open, setOpen] = useState(false)

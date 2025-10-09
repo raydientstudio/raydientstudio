@@ -4,34 +4,64 @@ import Forbidden from '../forbidden';
 import Timeout from '../request-timeout';
 import Maintenance from '../service-unavailable';
 import NotFound from '../not-found';
+import Error from '../error';
 
 export const metadata = {
-  title: 'Error',
-  description: 'Error page',
+    title: 'Error',
+    description: 'Error page',
+};
+
+type ErrorComponentProps = {
+    error: {
+        name: string;
+        message: string;
+    };
+    reset: () => void;
 };
 
 type ErrorPageProps = {
-  params: { error: string };
+    params: { error: string };
+    searchParams: { [key: string]: string | string[] | undefined };
 };
 
-const errorTypes: Record<string, ComponentType> = {
-  '401': Unauthorized,
-  '403': Forbidden,
-  '404': NotFound,
-  '408': Timeout,
-  '500': Error,
-  '503': Maintenance,
+const errorTypes: Record<string, ComponentType<ErrorComponentProps>> = {
+    '401': Unauthorized,
+    '403': Forbidden,
+    '404': NotFound,
+    '408': Timeout,
+    '500': Error,
+    '503': Maintenance,
+};
+
+const getErrorMessage = (code: string): string => {
+    const messages: Record<string, string> = {
+        '401': 'Unauthorized access',
+        '403': 'Forbidden access',
+        '404': 'Page not found',
+        '408': 'Request timeout',
+        '500': 'Internal server error',
+        '503': 'Service unavailable'
+    };
+    return messages[code] || 'Unknown error';
 };
 
 export default function ErrorPage({ params }: ErrorPageProps) {
-  const { error } = params;
+    const { error } = params;
     const ErrorComponent = errorTypes[error];
 
     if (!ErrorComponent) {
-      return NotFound();
+        return <NotFound />;
     }
 
-    return <ErrorComponent />;
+    return (
+        <ErrorComponent 
+            error={{
+                name: `Error ${error}`,
+                message: getErrorMessage(error)
+            }}
+            reset={() => window.location.reload()} 
+        />
+    );
 }
 
 export async function generateStaticParams() {

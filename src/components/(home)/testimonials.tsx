@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Marquee } from "./ui/marquee";
+import { Marquee } from "../ui/marquee";
 import SectionHeader from "./section-header";
 import { Space_Grotesk } from "@/fonts/local";
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { IconShield, IconPartnership, IconDesign, IconFuture } from "./miracle-ui/icons-advantages";
+import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
+import { IconShield, IconPartnership, IconDesign, IconFuture } from "../miracle-ui/icons-advantages";
 import SectionHeader from "./section-header";
 
 const info = {

@@ -1,6 +1,6 @@
 import React from "react";
 import { IconCornerDownRight, IconSquareFilled } from "@tabler/icons-react";
-import SectionHeader from "./section-header";
+import SectionHeader from "./(home)/section-header";
 import { JetBrains_Mono } from "@/fonts/local";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";

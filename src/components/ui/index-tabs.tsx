@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 type TabItem = {
@@ -77,7 +78,7 @@ export default function InexTab({ tabs }: InexTabProps) {
             {/* Tabs */}
             <div className="relative flex space-x-[6px] items-center">
                 {tabs.map((tab, index) => (
-                    <a
+                    <Link
                         key={tab.id}
                         href={tab.href}
                         ref={(el) => {
@@ -97,7 +98,7 @@ export default function InexTab({ tabs }: InexTabProps) {
                         <div className="text-sm leading-5 whitespace-nowrap flex items-center justify-center h-full">
                             {tab.name}
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
         </div>

@@ -1,15 +1,15 @@
 import React from "react";
-import FAQ from "@/components/faq";
-import FeaturedProjects from "@/components/featured-projects";
-import Hero from "@/components/hero";
-import PricingCards from "@/components/pricing-cards";
+import FAQ from "@/components/(home)/faq";
+import FeaturedProjects from "@/components/(home)/featured-projects";
+import Hero from "@/components/(home)/hero";
+import PricingCards from "@/components/(home)/pricing-cards";
 import RecentProjects from "@/components/recent-projects";
-import Services from "@/components/services";
-import WhyChooseUs from "@/components/why-choose-us";
+import Services from "@/components/(home)/services";
+import WhyChooseUs from "@/components/(home)/why-choose-us";
 import Newsletter from "@/components/newsletter";
-import Testimonial from "@/components/testimonials";
-import TrustedBrands from "@/components/trusted-brands";
-import Advantages from "@/components/advantages";
+import Testimonial from "@/components/(home)/testimonials";
+import TrustedBrands from "@/components/(home)/trusted-brands";
+import Advantages from "@/components/(home)/advantages";
 
 export default function Home() {
     return (

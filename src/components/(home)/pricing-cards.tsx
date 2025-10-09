@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { Separator } from "./ui/separator";
-import { Button } from "./ui/button";
+import { Separator } from "../ui/separator";
+import { Button } from "../ui/button";
 import {
     IconClockDollar,
     IconClockHour4,

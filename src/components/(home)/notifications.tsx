@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { BellDotIcon } from "lucide-react";
 import {
     Drawer,
@@ -12,8 +12,8 @@ import {
     DrawerHeader,
     DrawerTitle,
     DrawerTrigger
-} from "./ui/drawer";
-import { useMobileMenu } from "./mobile-menu";
+} from "../ui/drawer";
+import { useMobileMenu } from "../mobile-menu";
 
 export default function Notifications() {
 

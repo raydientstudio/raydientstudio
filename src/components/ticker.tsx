@@ -26,7 +26,7 @@ const Ticker = ({ items = [], speed = 30, direction = "left" }) => {
             >
                 
                 <div className="flex">
-                    {items.map((item: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, index: React.Key | null | undefined) => (
+                    {items.map((item: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<Linkny>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<Linkny>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, index: React.Key | null | undefined) => (
                         <div key={index} className="px-4">
                             {item}
                         </div>
@@ -35,7 +35,7 @@ const Ticker = ({ items = [], speed = 30, direction = "left" }) => {
 
                
                 <div className="flex">
-                    {items.map((item: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, index: React.Key | null | undefined) => (
+                    {items.map((item: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<Linkny>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<Linkny>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, index: React.Key | null | undefined) => (
                         <div key={`duplicate-${index}`} className="px-4">
                             {item}
                         </div>

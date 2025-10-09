@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { IconContract, IconDevelopment, IconPaint, IconVector } from "./miracle-ui/icons-services";
+import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
+import { IconContract, IconDevelopment, IconPaint, IconVector } from "../miracle-ui/icons-services";
 import SectionHeader from "./section-header";
 
 const info = {

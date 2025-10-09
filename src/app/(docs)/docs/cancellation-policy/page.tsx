@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { FlexLayout } from "@/components/layout/flex-layout";
+import Link from "next/link";
 
 const RouterButton = ({
     onClick,
@@ -68,7 +69,7 @@ export default function CookiePolicy() {
                 <p className="text-sm text-muted-foreground">
                     Effective Date: 24/07/2025 – Present <br />
                     Business Name: Raydient Studio <br />
-                    Website: <a className="text-blue-600 underline" href="https://raydientstudio.com" target="_blank" rel="noopener">raydientstudio.com</a>
+                    Website: <Link className="text-blue-600 underline" href="https://raydientstudio.com" target="_blank" rel="noopener">raydientstudio.com</Link>
                 </p>
 
                 <p>
@@ -104,9 +105,9 @@ export default function CookiePolicy() {
                 <h3 className="text-xl font-semibold mt-6">4. Data Privacy</h3>
                 <p>
                     All cookie-related data is handled in accordance with our{" "}
-                    <a href="/docs/privacy-policy" className="text-blue-600 underline">
+                    <Link href="/docs/privacy-policy" className="text-blue-600 underline">
                         Privacy Policy
-                    </a>{" "}
+                    </Link>{" "}
                     and is not shared with third parties without your consent.
                 </p>
             </div>

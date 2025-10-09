@@ -2,7 +2,7 @@
 
 import React, { JSX, useMemo } from "react";
 import Image from "next/image";
-import { Marquee } from "./ui/marquee";
+import { Marquee } from "../ui/marquee";
 
 export default function TrustedBrands(): JSX.Element {
 

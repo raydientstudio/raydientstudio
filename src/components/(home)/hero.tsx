@@ -3,7 +3,7 @@
 import React, { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { IconChevronRight, IconSparkles } from "@tabler/icons-react";
-import { Cover } from "./ui/cover";
+import { Cover } from "../ui/cover";
 import { StatusIndicator } from "./staus-indicator";
 import { HeroButton } from "./hero-button";
 
