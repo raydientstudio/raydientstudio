@@ -1,76 +1,10 @@
-import type { ComponentType } from 'react';
-import Unauthorized from '../unauthorized';
-import Forbidden from '../forbidden';
-import Timeout from '../request-timeout';
-import Maintenance from '../service-unavailable';
-import NotFound from '../not-found';
-import Error from '../error';
-
-export const metadata = {
-    title: 'Error',
-    description: 'Error page',
-};
-
-type ErrorComponentProps = {
-    error: {
-        name: string;
-        message: string;
-    };
-    reset: () => void;
-};
-
-type ErrorPageProps = {
-    params: { error: string };
-    searchParams: { [key: string]: string | string[] | undefined };
-};
-
-const errorTypes: Record<string, ComponentType<ErrorComponentProps>> = {
-    '401': Unauthorized,
-    '403': Forbidden,
-    '404': NotFound,
-    '408': Timeout,
-    '500': Error,
-    '503': Maintenance,
-};
-
-const getErrorMessage = (code: string): string => {
-    const messages: Record<string, string> = {
-        '401': 'Unauthorized access',
-        '403': 'Forbidden access',
-        '404': 'Page not found',
-        '408': 'Request timeout',
-        '500': 'Internal server error',
-        '503': 'Service unavailable'
-    };
-    return messages[code] || 'Unknown error';
-};
-
-export default function ErrorPage({ params }: ErrorPageProps) {
-    const { error } = params;
-    const ErrorComponent = errorTypes[error];
-
-    if (!ErrorComponent) {
-        return <NotFound />;
-    }
-
-    return (
-        <ErrorComponent 
-            error={{
-                name: `Error ${error}`,
-                message: getErrorMessage(error)
-            }}
-            reset={() => window.location.reload()} 
-        />
-    );
-}
-
-export async function generateStaticParams() {
-    return [
-        { error: '401' },
-        { error: '403' },
-        { error: '404' },
-        { error: '408' },
-        { error: '500' },
-        { error: '503' },
-    ];
+export default function ErrorPage() {
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+      <h1 className="text-3xl font-bold">Error</h1>
+      <p className="text-lg text-gray-600">
+        An unexpected error has occurred. Please try again later.
+      </p>
+    </div>
+  );
 }

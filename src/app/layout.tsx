@@ -10,54 +10,34 @@ import { Toaster } from "@/components/ui/toaster";
 import { CookieToast } from "@/components/cookie-toast";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-const SITE_NAME = "Raydient Studio";
-const SITE_USERNAME = "@raydientstudio";
-const SITE_DESCRIPTION = "Raydient Studio is a premium web design agency specializing in minimalism, branding, and digital experiences for AI, SaaS, Tech, and Startups.";
-const SITE_URL = "https://raydientstudio.vercel.app";
-const SITE_ICON = {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-}
-const SITE_LOCALE = "en_US";
-const KEYWORDS = [
-    "raydient",
-    "raydient studio",
-    "raydientstudio",
-    "web design",
-    "branding",
-    "minimalism",
-    "digital agency",
-    "UI/UX design",
-    "SaaS design",
-    "startup design",
-    "AI design",
-    "tech design",
-]
-const MANIFEST = "/manifest.ts";
-const OG_CARD = "summary_large_image";
-const OG_TYPE = "website";
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
-const OG_IMAGES = [{
-    url: OG_IMAGE,
-    width: 1200,
-    height: 630,
-    type: "image/jpeg",
-    alt: `${SITE_NAME} - Premium Web Design Agency`,
-}]
+import { 
+    SITE_NAME,
+    SITE_USERNAME,
+    SITE_DESCRIPTION, 
+    SITE_URL, 
+    SITE_TITLE, 
+    KEYWORDS, 
+    CREATOR, 
+    PUBLISHER, 
+    MANIFEST, 
+    SITE_ICON, 
+    OG_IMAGES, 
+    SITE_LOCALE, 
+    OG_TYPE, 
+    OG_CARD,  
+    OG_IMAGE, 
+    VIEWPORT, 
+    ROBOTS 
+} from "@/utils/metadata";
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
-    title: {
-        default: SITE_NAME,
-        template: `%s | ${SITE_NAME}`,
-    },
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     keywords: KEYWORDS,
     authors: [{ name: SITE_NAME, url: SITE_URL }],
-    creator: SITE_NAME,
-    publisher: SITE_NAME,
+    creator: CREATOR,
+    publisher: PUBLISHER,
     alternates: {
         canonical: SITE_URL,
     },
@@ -80,20 +60,14 @@ export const metadata: Metadata = {
         site: SITE_USERNAME,
         images: [OG_IMAGE],
     },
-    viewport: {
-        width: "device-width",
-        initialScale: 1,
-    },
-    robots: {
-        index: true,
-        follow: true,
-    },
+    viewport: VIEWPORT,
+    robots: ROBOTS,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning suppressContentEditableWarning>
-            <body className={`${Host_Grotesk.variable} ${JetBrains_Mono.variable} antialiased font-sans scrollbar-webkit`}>
+            <body className={`${Host_Grotesk.variable} ${JetBrains_Mono.variable} antialiased`}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     <SettingsProvider>
                         <MobileMenuProvider>

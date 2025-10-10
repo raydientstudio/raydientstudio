@@ -23,6 +23,7 @@ import { IconChevronLeft, IconChevronRight, IconCopy } from "@tabler/icons-react
 import { Header } from "@/components/semantic/header";
 import { FlexLayout } from "@/components/layout/flex-layout";
 import ThemeChanger from "@/components/theme-changer";
+import { docsRoutes } from "@/utils/routes";
 
 const RouterButton = ({ onClick, variant, size, radius, children }: { onClick: () => void, variant: "destructive" | "elevated" | "filled" | "linked" | "outlined" | "text" | "tonal", size: "small" | "badge" | "default" | "natural" | "large" | "action" | "icon" | "social" | "wide", radius: "none" | "small" | "medium" | "large" | "full" | null | undefined, children: React.ReactNode }) => (
 	<Button onClick={onClick} variant={variant} size={size} radius={radius}>
@@ -128,7 +129,7 @@ export default function Docs() {
 								<RouterButton onClick={() => navigateTo("/")} variant="tonal" size="icon" radius="medium">
 									<IconChevronLeft />
 								</RouterButton>
-								<RouterButton onClick={() => navigateTo("/docs/introduction")} variant="tonal" size="icon" radius="medium">
+								<RouterButton onClick={() => navigateTo(docsRoutes[2])} variant="tonal" size="icon" radius="medium">
 									<IconChevronRight />
 								</RouterButton>
 							</FlexLayout>
@@ -137,7 +138,7 @@ export default function Docs() {
 									<IconChevronLeft />
 									Previous
 								</RouterButton>
-								<RouterButton onClick={() => navigateTo("/docs/introduction")} variant="tonal" size="default" radius="medium">
+								<RouterButton onClick={() => navigateTo(docsRoutes[2])} variant="tonal" size="default" radius="medium">
 									Next
 									<IconChevronRight />
 								</RouterButton>
