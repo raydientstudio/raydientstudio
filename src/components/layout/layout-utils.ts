@@ -41,10 +41,7 @@ const breakpointAliasMap: Record<string, string> = {
 /**
  * Resolves responsive Tailwind classes for spacing, sizing, etc.
  */
-export const resolveResponsiveClass = <T extends string | number>(
-	prefix: string,
-	value?: T | { initial?: T;[key: string]: T | undefined }
-): string[] => {
+export const resolveResponsiveClass = <T extends string | number>(prefix: string, value?: T | { initial?: T; [key: string]: T | undefined }): string[] => {
 	if (value === undefined) return [];
 	if (typeof value !== "object") return [`${prefix}-${value}`];
 
@@ -59,9 +56,7 @@ export const resolveResponsiveClass = <T extends string | number>(
 /**
  * Resolves responsive Tailwind classes for enums (e.g., flex, grid alignment).
  */
-export const resolveEnumClass = <T extends string>(
-	value?: T | { initial?: T;[key: string]: T | undefined }
-): string[] => {
+export const resolveEnumClass = <T extends string>(value?: T | { initial?: T; [key: string]: T | undefined }): string[] => {
 	if (!value) return [];
 	if (typeof value !== "object") return [value];
 

@@ -2,13 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { AppSidebar } from "@/components/app-sidebar";
-import {
-	SidebarInset,
-	SidebarProvider,
-} from "@/components/ui/sidebar";
 import { useRouter } from "next/navigation";
+import { AppSidebar } from "@/components/app-sidebar";
 import { Button } from "@/components/ui/button";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { IconChevronLeft, IconChevronRight, IconCopy } from "@tabler/icons-react";
 import { FlexLayout } from "@/components/layout/flex-layout";
 import { docsRoutes } from "@/utils/routes";
@@ -37,10 +34,6 @@ export default function Docs() {
 							<h2 className="text-3xl font-bold text-primary">
 								Docs
 							</h2>
-
-							<p className="font-medium">
-								Official Documentation Portal of Raydient Studio™
-							</p>
 
 							<p className="text-sm text-muted-foreground">
 								Effective Date: 24/07/2025 – Present <br />

@@ -5,36 +5,30 @@ import { Separator } from "./ui/separator";
 import { SidebarTrigger } from "./ui/sidebar";
 import ThemeChanger from "./theme-changer";
 
-interface DocsHeaderProps {
-    index: number;
-}
+const docsRoutes = [
+    { path: "/docs", title: "Docs" },
+    { path: "/docs/introduction", title: "Introduction" },
+    { path: "/docs/terms-and-conditions", title: "Terms and Conditions" },
+    { path: "/docs/privacy-policy", title: "Privacy Policy" },
+    { path: "/docs/cookie-policy", title: "Cookie Policy" },
+    { path: "/docs/refund-and-replacement-policy", title: "Refund and Replacement Policy" },
+    { path: "/docs/shipping-and-delivery-policy", title: "Shipping and Delivery Policy" },
+    { path: "/docs/cancellation-policy", title: "Cancellation Policy" },
+    { path: "/docs/intellectual-property-policy", title: "Intellectual Property Policy" },
+    { path: "/docs/partnership-program-policy", title: "Partnership Program Policy" },
+    { path: "/docs/warranty-and-guarantee-policy", title: "Warranty and Guarantee Policy" },
+    { path: "/docs/end-user-license-agreement", title: "End User License Agreement" },
+    { path: "/docs/non-disclosure-agreement", title: "Non-Disclosure Agreement" },
+    { path: "/docs/service-level-agreement", title: "Service Level Agreement" },
+];
 
-const DocsHeader = ({ index }: DocsHeaderProps) => {
-    const docsRoutes = [
-        { path: "/docs", title: "Docs" },
-        { path: "/docs/introduction", title: "Introduction" },
-        { path: "/docs/terms-and-conditions", title: "Terms and Conditions" },
-        { path: "/docs/privacy-policy", title: "Privacy Policy" },
-        { path: "/docs/cookie-policy", title: "Cookie Policy" },
-        { path: "/docs/refund-and-replacement-policy", title: "Refund and Replacement Policy" },
-        { path: "/docs/shipping-and-delivery-policy", title: "Shipping and Delivery Policy" },
-        { path: "/docs/cancellation-policy", title: "Cancellation Policy" },
-        { path: "/docs/intellectual-property-policy", title: "Intellectual Property Policy" },
-        { path: "/docs/partnership-program-policy", title: "Partnership Program Policy" },
-        { path: "/docs/warranty-and-guarantee-policy", title: "Warranty and Guarantee Policy" },
-        { path: "/docs/end-user-license-agreement", title: "End User License Agreement" },
-        { path: "/docs/non-disclosure-agreement", title: "Non-Disclosure Agreement" },
-        { path: "/docs/service-level-agreement", title: "Service Level Agreement" },
-    ];
+const DocsHeader = ({ index }: { index: number }) => {
 
-    const currentRoute = docsRoutes[index] || { path: "/docs", title: "Docs" };
+    const currentRoute = docsRoutes[index] || docsRoutes[0];
 
-    const breadcrumbItems = index === 0 ? [
+    const breadcrumbItems = [
         { isLink: true, title: "Home", href: "/" },
-        { isLink: false, title: currentRoute.title },
-    ] : [
-        { isLink: true, title: "Home", href: "/" },
-        { isLink: true, title: "Docs", href: "/docs" },
+        ...(index > 0 ? [{ isLink: true, title: "Docs", href: "/docs" }] : []),
         { isLink: false, title: currentRoute.title },
     ];
 
