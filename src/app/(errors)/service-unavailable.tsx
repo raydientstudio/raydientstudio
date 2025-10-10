@@ -3,18 +3,10 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 
-interface ErrorProps {
-    error: Error;
-    reset: () => void;
-}
-
-export default function ServiceUnavailable({ error, reset }: ErrorProps) {
+export default function ServiceUnavailable() {
     return (
         <div>
-            <p>
-                {error.message}
-            </p>
-            <Button onClick={() => reset()}>
+            <Button>
                 Try Again
             </Button>
         </div>

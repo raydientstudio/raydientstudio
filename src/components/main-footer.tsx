@@ -137,7 +137,7 @@ export default function MainFooter() {
                     </div>
 
                     {/* Newsletter */}
-                    <div className="border border-border border-solid px-4 py-4 rounded-lg space-y-4 w-full">
+                    <div className="hidden border border-border border-solid px-4 py-4 rounded-lg space-y-4 w-full">
                         <div className="flex flex-col items-start justify-start space-y-4">
                             <div className="flex flex-row items-center justify-start gap-x-1 mb-2 w-full">
                                 <IconSquareFilled size={14} className="text-foreground" />

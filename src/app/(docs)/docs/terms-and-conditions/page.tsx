@@ -5,24 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
     SidebarInset,
     SidebarProvider,
-    SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { IconChevronLeft, IconChevronRight, IconCopy } from "@tabler/icons-react";
-import { Header } from "@/components/semantic/header";
 import { FlexLayout } from "@/components/layout/flex-layout";
-import ThemeChanger from "@/components/theme-changer";
+import DocsHeader from "@/components/docs-header";
+import { docsRoutes } from "@/utils/routes";
 
 
 const RouterButton = ({
@@ -52,30 +42,7 @@ export default function TermsAndConditions() {
             <SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
-                    <Header className="fixed z-10 top-0 left-0 right-0 flex h-16 shrink-0 rounded-b-lg border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-                        <FlexLayout direction={"row"} items={"center"} gapX={2} paddingX={4} width={"full"}>
-                            <SidebarTrigger className="-ml-1" />
-                            <Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />
-                            <Breadcrumb>
-                                <BreadcrumbList>
-                                    <BreadcrumbItem>
-                                        <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                                    </BreadcrumbItem>
-                                    <BreadcrumbSeparator />
-                                    <BreadcrumbItem>
-                                        <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
-                                    </BreadcrumbItem>
-                                    <BreadcrumbSeparator />
-                                    <BreadcrumbItem>
-                                        <BreadcrumbPage>Terms and Conditions</BreadcrumbPage>
-                                    </BreadcrumbItem>
-                                </BreadcrumbList>
-                            </Breadcrumb>
-                            <FlexLayout marginLeft={"auto"}>
-                                <ThemeChanger />
-                            </FlexLayout>
-                        </FlexLayout>
-                    </Header>
+                    <DocsHeader index={2} />
                     <FlexLayout display={"flex"} direction={"col"} justify={"start"} items={"start"} width={"full"} height={"fit-content"} paddingX={4} paddingY={6} spaceY={6}>
                         <FlexLayout display={"flex"} direction={"col"} spaceY={4} marginTop={16}>
                             <h2 className="text-3xl font-bold text-primary">Terms and Conditions</h2>
@@ -182,10 +149,10 @@ export default function TermsAndConditions() {
                                 Copy Docs
                             </Button>
                             <FlexLayout direction={"row"} marginLeft={"auto"} spaceX={2}>
-                                <RouterButton onClick={() => navigateTo("/docs/introduction")} variant="tonal" size="icon" radius="medium">
+                                <RouterButton onClick={() => navigateTo(docsRoutes[2])} variant="tonal" size="icon" radius="medium">
                                     <IconChevronLeft />
                                 </RouterButton>
-                                <RouterButton onClick={() => navigateTo("/docs/privacy-policy")} variant="tonal" size="icon" radius="medium">
+                                <RouterButton onClick={() => navigateTo(docsRoutes[4])} variant="tonal" size="icon" radius="medium">
                                     <IconChevronRight />
                                 </RouterButton>
                             </FlexLayout>

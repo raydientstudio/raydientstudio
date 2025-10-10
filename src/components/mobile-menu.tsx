@@ -3,7 +3,6 @@
 import React, { useState, useEffect, createContext, useContext, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { IconLayoutGrid, IconShape } from "@tabler/icons-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
@@ -13,61 +12,7 @@ import { Poppins } from "@/fonts/local";
 import { useSettings } from "@/hooks/use-settings";
 import { Switch } from '@/components/ui/switch'; 
 import ThemeSwitcher from "./theme-switcher";
-
-const data = {
-    user: {
-        name: "Entrepreneur Aziz",
-        title: "Entrepreneur | Developer | Designer",
-        description: "I am a passionate entrepreneur, developer, and designer with a keen interest in creating innovative solutions that make a difference.",
-        website: "https://entrepreneuraziz.com",
-        github: "https://github.com/sheikh-abdul-aziz",
-        x: "https://x.com/@ShekhAbdulAzeez",
-        dribbble: "#",
-        behance: "#",
-        instagram: "https://www.instagram.com/shaykhabdulazeez/",
-        email: "info@entrepreneuraziz.com",
-        avatar: "https://github.com/sheikh-abdul-aziz.png",
-        avatarFallback: "SA",
-        avatarAlt: "Entrepreneur Aziz",
-    },
-    navigationMenu: [
-        { title: "Home", url: "/" },
-        { title: "Docs", url: "/docs" },
-        { title: "Settings", url: "/settings" },
-    ],
-    projectsMenu: [
-        {
-            title: "All Categories",
-            id: "id1",
-            url: "#",
-            icon: IconLayoutGrid,
-            isActive: false,
-            items: [
-                { id: "web-designs", title: "Website Design", url: "#" },
-                { id: "ui-ux-designs", title: "UI/UX Design", url: "#" },
-                { id: "product-designs", title: "Product Design", url: "#" },
-                { id: "web-development", title: "Frontend Development", url: "#" },
-            ],
-        },
-        {
-            title: "Reusable Blocks",
-            id: "id2",
-            url: "#",
-            icon: IconShape,
-            isActive: false,
-            items: [
-                { id: "hero", title: "Hero", url: "#" },
-                { id: "navigation", title: "Navigation", url: "#" },
-                { id: "footer", title: "Footer", url: "#" },
-                { id: "testimonial", title: "Testimonial", url: "#" },
-                { id: "pricing", title: "Pricing", url: "#" },
-                { id: "contact", title: "Contact", url: "#" },
-                { id: "faq", title: "FAQ", url: "#" },
-                { id: "features", title: "Features", url: "#" },
-            ],
-        },
-    ],
-};
+import menus from "@/utils/mobile-menus";
 
 type MobileMenuContextType = {
     isMenuOpen: boolean;
@@ -125,10 +70,10 @@ export default function MobileMenu() {
                 {isMenuOpen && (
                     <motion.div key="mobile-drawer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.150, ease: "easeInOut" }} className="z-20 flex flex-col fixed left-0 right-0 top-16 bottom-0 h-[100dvh] w-screen bg-background text-foreground px-4 py-4 gap-y-3">
                         <div className="flex flex-col items-center justify-between gap-y-4">
-                            <Button onClick={() => navigateTo(SIGNUP)} variant={"primary"} size={"wide"} radius={"small"}>
+                            <Button onClick={() => navigateTo(SIGNUP)} variant={"filled"} size={"wide"} radius={"medium"}>
                                 Signup
                             </Button>
-                            <Button onClick={() => navigateTo(LOGIN)} variant={"secondary"} size={"wide"} radius={"small"}>
+                            <Button onClick={() => navigateTo(LOGIN)} variant={"outlined"} size={"wide"} radius={"medium"}>
                                 Login
                             </Button>
                         </div>
@@ -145,8 +90,8 @@ export default function MobileMenu() {
                             <div className="flex flex-row items-center justify-between">
                                 <Label className="text-sm font-normal">Dashboard</Label>
                                 <Avatar className="w-8 h-8 border border-border rounded-md">
-                                    <AvatarImage src={data.user.avatar} alt={data.user.avatarAlt} />
-                                    <AvatarFallback>{data.user.avatarFallback}</AvatarFallback>
+                                    <AvatarImage src={"https://github.com/sheikh-abdul-aziz.png"} alt={"User Avatar"} />
+                                    <AvatarFallback>{"Sheikh Abdul Aziz"}</AvatarFallback>
                                 </Avatar>
                             </div>
                             <div className="flex flex-row items-center justify-between">
@@ -162,7 +107,7 @@ export default function MobileMenu() {
                         <Separator orientation="horizontal" className="my-3" />
 
                         <div className="flex flex-col">
-                            <MobileNavigation itemFirst={data.navigationMenu} itemSecond={data.projectsMenu} />
+                            <MobileNavigation itemFirst={menus.navigationMenu} itemSecond={menus.projectsMenu} />
                         </div>
                     </motion.div>
                 )}

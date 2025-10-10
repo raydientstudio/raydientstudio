@@ -4,26 +4,15 @@ import React from "react";
 import Link from "next/link";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
 	SidebarInset,
 	SidebarProvider,
-	SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { IconChevronLeft, IconChevronRight, IconCopy } from "@tabler/icons-react";
-import { Header } from "@/components/semantic/header";
 import { FlexLayout } from "@/components/layout/flex-layout";
-import ThemeChanger from "@/components/theme-changer";
 import { docsRoutes } from "@/utils/routes";
+import DocsHeader from "@/components/docs-header";
 
 const RouterButton = ({ onClick, variant, size, radius, children }: { onClick: () => void, variant: "destructive" | "elevated" | "filled" | "linked" | "outlined" | "text" | "tonal", size: "small" | "badge" | "default" | "natural" | "large" | "action" | "icon" | "social" | "wide", radius: "none" | "small" | "medium" | "large" | "full" | null | undefined, children: React.ReactNode }) => (
 	<Button onClick={onClick} variant={variant} size={size} radius={radius}>
@@ -42,26 +31,7 @@ export default function Docs() {
 			<SidebarProvider>
 				<AppSidebar />
 				<SidebarInset>
-					<Header className="fixed z-10 top-0 left-0 right-0 flex h-16 shrink-0 rounded-b-lg border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-						<div className="flex flex-row items-center gap-x-2 px-4 w-full">
-							<SidebarTrigger className="-ml-1" />
-							<Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />
-							<Breadcrumb>
-								<BreadcrumbList>
-									<BreadcrumbItem>
-										<BreadcrumbLink href="/">Home</BreadcrumbLink>
-									</BreadcrumbItem>
-									<BreadcrumbSeparator />
-									<BreadcrumbItem>
-										<BreadcrumbPage>Docs</BreadcrumbPage>
-									</BreadcrumbItem>
-								</BreadcrumbList>
-							</Breadcrumb>
-							<div className="ml-auto">
-								<ThemeChanger />
-							</div>
-						</div>
-					</Header>
+					<DocsHeader index={0} />
 					<FlexLayout display={"flex"} direction={"col"} justify={"start"} items={"start"} width={"full"} height={"fit-content"} paddingX={4} paddingY={6} spaceY={6}>
 						<FlexLayout display={"flex"} direction={"col"} spaceY={4} marginTop={16}>
 							<h2 className="text-3xl font-bold text-primary">

@@ -3,18 +3,10 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 
-interface ErrorProps {
-    error: Error;
-    reset: () => void;
-}
-
-export default function Unauthorized({ error, reset }: ErrorProps) {
+export default function Unauthorized() {
     return (
         <div>
-            <p>
-                {error.message}
-            </p>
-            <Button onClick={() => reset()}>
+            <Button>
                 Try Again
             </Button>
         </div>

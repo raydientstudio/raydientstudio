@@ -1,35 +1,26 @@
-import type { MetadataRoute } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
-const SITE_NAME = 'Raydient Studio';
-const SITE_SHORT_NAME = 'Raydient';
-const SITE_DESCRIPTION = 'Premium Web Design Agency - Your Strategic Design Partner for AI, SaaS, Tech, and Startups.';
-const SITE_START_URL = '/';
-const SITE_DISPLAY = 'standalone';
-const SITE_ICONS = [
-    {
-        src: '/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon'
-    },
-    {
-        src: '/android-chrome-192x192.png',
-        sizes: '192x192',
-        type: 'image/png'
-    },
-    {
-        src: '/android-chrome-512x512.png',
-        sizes: '512x512',
-        type: 'image/png'
-    }
-];
+export function middleware(request: NextRequest) {
 
-export default function manifest(): MetadataRoute.Manifest {
-    return {
-        name: SITE_NAME,
-        short_name: SITE_SHORT_NAME,
-        description: SITE_DESCRIPTION,
-        start_url: SITE_START_URL,
-        display: SITE_DISPLAY,
-        icons: [...SITE_ICONS]
+    if (request.nextUrl.pathname.startsWith("/index") || request.nextUrl.pathname.startsWith("/home")) {
+        return NextResponse.redirect(new URL("/", request.url));
     }
+
+    const isAuthentication = false;
+
+    if (request.nextUrl.pathname.startsWith("/sign") && !isAuthentication) {
+        return NextResponse.redirect(new URL("/signup", request.url));
+    }
+
+    if (request.nextUrl.pathname.startsWith("/signin") && isAuthentication) {
+        return NextResponse.redirect(new URL("/login", request.url));
+    }
+
+    const isMaintenance = false;
+
+    if (isMaintenance) {
+        return NextResponse.redirect(new URL("/maintenance", request.url));
+    }
+
+    return NextResponse.next();
 }
