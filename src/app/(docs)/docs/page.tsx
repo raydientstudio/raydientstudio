@@ -2,27 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { AppSidebar } from "@/components/app-sidebar";
-import { Button } from "@/components/ui/button";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { IconChevronLeft, IconChevronRight, IconCopy } from "@tabler/icons-react";
 import { FlexLayout } from "@/components/layout/flex-layout";
 import { docsRoutes } from "@/utils/routes";
 import DocsHeader from "@/components/docs-header";
-
-const RouterButton = ({ onClick, variant, size, radius, children }: { onClick: () => void, variant: "destructive" | "elevated" | "filled" | "linked" | "outlined" | "text" | "tonal", size: "small" | "badge" | "default" | "natural" | "large" | "action" | "icon" | "social" | "wide", radius: "none" | "small" | "medium" | "large" | "full" | null | undefined, children: React.ReactNode }) => (
-	<Button onClick={onClick} variant={variant} size={size} radius={radius}>
-		{children}
-	</Button>
-);
+import DocsFooter from "@/components/docs-footer";
 
 export default function Docs() {
-
-	const router = useRouter();
-
-	const navigateTo = (path: string) => router.push(path);
-
 	return (
 		<>
 			<SidebarProvider>
@@ -83,30 +70,7 @@ export default function Docs() {
 								Location: West Bengal, India
 							</p>
 						</FlexLayout>
-						<FlexLayout display="flex" direction="row" items="center" width="full">
-							<Button onClick={() => navigateTo("/docs")} variant="tonal" size="small" radius="medium">
-								<IconCopy />
-								Copy Docs
-							</Button>
-							<FlexLayout display={{initial: "flex", medium: "hidden"}} direction={"row"} marginLeft={"auto"} spaceX={2}>
-								<RouterButton onClick={() => navigateTo("/")} variant="tonal" size="icon" radius="medium">
-									<IconChevronLeft />
-								</RouterButton>
-								<RouterButton onClick={() => navigateTo(docsRoutes[2])} variant="tonal" size="icon" radius="medium">
-									<IconChevronRight />
-								</RouterButton>
-							</FlexLayout>
-							<FlexLayout display={{initial: "hidden", medium: "flex"}} direction={"row"} marginLeft={"auto"} spaceX={4}>
-								<RouterButton onClick={() => navigateTo("/")} variant="tonal" size="default" radius="medium">
-									<IconChevronLeft />
-									Previous
-								</RouterButton>
-								<RouterButton onClick={() => navigateTo(docsRoutes[2])} variant="tonal" size="default" radius="medium">
-									Next
-									<IconChevronRight />
-								</RouterButton>
-							</FlexLayout>
-						</FlexLayout>
+						<DocsFooter raw={"/docs"} previous={"/"} next={docsRoutes[2]} />
 					</FlexLayout>
 				</SidebarInset>
 			</SidebarProvider>
