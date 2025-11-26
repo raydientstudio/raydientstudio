@@ -1,42 +1,17 @@
 'use client';
 
-import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
     SidebarInset,
     SidebarProvider,
 } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
-import { IconChevronLeft, IconChevronRight, IconCopy } from "@tabler/icons-react";
 import { FlexLayout } from "@/components/layout/flex-layout";
 import DocsHeader from "@/components/docs-header";
 import { docsRoutes } from "@/utils/routes";
+import DocsFooter from "@/components/docs-footer";
 
-
-const RouterButton = ({
-    onClick,
-    variant,
-    size,
-    radius,
-    children,
-}: {
-    onClick: () => void;
-    variant: "destructive" | "elevated" | "filled" | "linked" | "outlined" | "text" | "tonal";
-    size: "small" | "badge" | "default" | "natural" | "large" | "action" | "icon" | "social" | "wide";
-    radius: "none" | "small" | "medium" | "large" | "full" | null | undefined;
-    children: React.ReactNode;
-}) => (
-    <Button onClick={onClick} variant={variant} size={size} radius={radius}>
-        {children}
-    </Button>
-);
-
-export default function TermsAndConditions() {
-    const router = useRouter();
-    const navigateTo = (path: string) => router.push(path);
-
+export default function TermsAndConditions() { 
     return (
         <>
             <SidebarProvider>
@@ -143,20 +118,7 @@ export default function TermsAndConditions() {
                                 Assistance: RayAI (AI Agent only)
                             </p>
                         </FlexLayout>
-                        <FlexLayout display="flex" direction="row" items="center" width="full">
-                            <Button onClick={() => navigateTo("/docs")} variant="tonal" size="small" radius="medium">
-                                <IconCopy />
-                                Copy Docs
-                            </Button>
-                            <FlexLayout direction={"row"} marginLeft={"auto"} spaceX={2}>
-                                <RouterButton onClick={() => navigateTo(docsRoutes[2])} variant="tonal" size="icon" radius="medium">
-                                    <IconChevronLeft />
-                                </RouterButton>
-                                <RouterButton onClick={() => navigateTo(docsRoutes[4])} variant="tonal" size="icon" radius="medium">
-                                    <IconChevronRight />
-                                </RouterButton>
-                            </FlexLayout>
-                        </FlexLayout>
+                        <DocsFooter raw={"/docs"} previous={docsRoutes[2]} next={docsRoutes[4]} />
                     </FlexLayout>
                 </SidebarInset>
             </SidebarProvider >

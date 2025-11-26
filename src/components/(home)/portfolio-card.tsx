@@ -37,7 +37,7 @@ export function PortfolioCard({
                 <div className="flex items-end gap-2 w-full">
                     {brandUrl && (
                         <div className="flex-shrink-0 w-8 h-8 md:w-12 md:h-12 relative">
-                            <Image src={brandUrl} alt={`${title}`} fill className="object-contain rounded-md border border-border" />
+                            <Image src={brandUrl} alt={`${title}`} fill className="object-contain rounded-sm border border-border" />
                         </div>
                     )}
                     <div className="flex flex-row items-end w-full">

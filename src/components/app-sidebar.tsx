@@ -22,7 +22,7 @@ import {
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar"
-import { IconRaydientStudio } from "./miracle-ui/icon";
+import { IconRaydientStudio } from "./mipmap/drawable";
 
 // This is sample data.
 const data = {

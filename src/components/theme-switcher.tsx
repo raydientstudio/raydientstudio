@@ -2,7 +2,7 @@
 import { useTheme } from "next-themes"
 import { useEffect, useState, useRef, useCallback } from "react"
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
-import { IconDevices, IconMoonStars, IconSun } from "./miracle-ui/icons-theme";
+import { IconDevices, IconMoonStars, IconSun } from "./mipmap/icons-theme";
 
 
 const themes = ["system", "light", "dark"]

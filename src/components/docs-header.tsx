@@ -2,7 +2,7 @@ import { Fragment, memo } from "react";
 import { FlexLayout } from "./layout/flex-layout";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "./ui/breadcrumb";
 import { Separator } from "./ui/separator";
-import { SidebarTrigger } from "./ui/sidebar";
+import { SidebarTrigger, useSidebar } from "./ui/sidebar";
 import ThemeChanger from "./theme-changer";
 
 const docsRoutes = [
@@ -23,6 +23,7 @@ const docsRoutes = [
 ];
 
 const DocsHeader = ({ index }: { index: number }) => {
+    const { state } = useSidebar(); // Access the sidebar state ("expanded" or "collapsed")
 
     const currentRoute = docsRoutes[index] || docsRoutes[0];
 
@@ -33,7 +34,10 @@ const DocsHeader = ({ index }: { index: number }) => {
     ];
 
     return (
-        <header className="fixed z-10 top-0 left-0 right-0 flex h-16 shrink-0 rounded-b-lg border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+        <header
+            className={`fixed z-10 top-0 flex h-16 shrink-0 rounded-b-lg border-b border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80 items-center transition-[left,width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12
+            ${state === "expanded" ? "left-0 md:left-[256px] w-[calc(100%-0px)] md:w-[calc(100%-256px)]" : "left-0 md:left-[48px] w-[calc(100%-0px)] md:w-[calc(100%-48px)]"}`}
+        >
             <FlexLayout direction={"row"} items={"center"} gapX={2} paddingX={4} width={"full"}>
                 <SidebarTrigger className="-ml-1" />
                 <Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />

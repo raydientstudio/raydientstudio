@@ -1,16 +1,15 @@
 "use client";
 
-import React from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
-import { IconContract, IconDevelopment, IconPaint, IconVector } from "../miracle-ui/icons-services";
+import { IconContract, IconDevelopment, IconPaint, IconVector } from "../mipmap/icons-services";
 import SectionHeader from "./section-header";
 
 const info = {
     title: "SERVICES",
     subtitle: (
         <>
-            Building Websites, Products,{" "}<br className="md:hidden" />and Identity
+            Serving Clients With Integrity{" "}<br className="md:hidden" />and Precision
         </>
     ),
 };

@@ -1,9 +1,13 @@
 import React from "react";
 import Link from "next/link";
 
-export default function BriefFooter() {
+interface BriefFooterProps {
+    className?: string;
+}
+
+export default function BriefFooter({ className }: BriefFooterProps) {
     return (
-        <footer className="bg-surface border-t border-border border-dashed relative bottom-0 left-0 right-0 py-6 rounded-t-lg">
+        <footer className={`bg-surface border-t border-border border-dashed relative w-full py-6 rounded-t-lg ${className || ""}`}>
             <div className="px-5">
                 <div className="flex flex-col gap-y-3 max-w-7xl mx-auto">
                     {/* Copyright & Attribution */}

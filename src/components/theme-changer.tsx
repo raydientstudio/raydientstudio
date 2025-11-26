@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { IconDevices, IconMoonStars, IconSun } from "./miracle-ui/icons-theme";
+import { IconDevices, IconMoonStars, IconSun } from "./mipmap/icons-theme";
 
 export default function ThemeChanger() {
 

@@ -18,7 +18,7 @@ import {
 } from "@tabler/icons-react";
 import { JetBrains_Mono } from "@/fonts/local";
 import { Input } from "./ui/input";
-import IconWordmark from "./miracle-ui/raydient";
+import IconWordmark from "./mipmap/raydient";
 
 export default function MainFooter() {
 

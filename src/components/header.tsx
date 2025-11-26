@@ -4,13 +4,13 @@ import React, { memo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Separator } from "./ui/separator";
-import { IconRaydientStudio } from "./miracle-ui/icon";
+import { IconRaydientStudio } from "./mipmap/drawable";
 import { DesktopMenu } from "./desktop-menu";
 import Search from "./(home)/search";
 import Notifications from "./(home)/notifications";
 import ThemeSwitcher from "./theme-switcher";
 import MobileMenu from "./mobile-menu";
-import IconWordmark from "./miracle-ui/raydient";
+import IconWordmark from "./mipmap/raydient";
 
 const Header = () => {
 
@@ -30,7 +30,7 @@ const Header = () => {
                     {/* MOBILE */}
                     <div className="flex flex-row lg:hidden items-center gap-x-2">
                         {/* Logo */}
-                        <IconRaydientStudio onClick={() => navigateTo("/")} />
+                        <IconRaydientStudio onClick={() => navigateTo("/")} size={36} />
                     </div>
 
                     {/* DESKTOP */}

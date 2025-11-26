@@ -6,10 +6,10 @@ import SectionHeader from "./section-header";
 import { Space_Grotesk } from "@/fonts/local";
 
 const info = {
-    title: "CLIENT TESTIMONIALS",
+    title: "TESTIMONIALS",
     subtitle: (
         <>
-            Loved by Our Clients{" "}<br className="md:hidden" />Worldwide
+            Satisfaction Recognized{" "}<br className="md:hidden" />Internationally
         </>
     ),
 };

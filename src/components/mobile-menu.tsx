@@ -9,8 +9,6 @@ import { Separator } from "./ui/separator";
 import { MobileNavigation } from "./mobile-navigation";
 import { Label } from "./ui/label";
 import { Poppins } from "@/fonts/local";
-import { useSettings } from "@/hooks/use-settings";
-import { Switch } from '@/components/ui/switch'; 
 import ThemeSwitcher from "./theme-switcher";
 import menus from "@/utils/mobile-menus";
 
@@ -43,8 +41,6 @@ export default function MobileMenu() {
 
     const router = useRouter();
 
-    const { isMaintenance, toggleMaintenance } = useSettings();
-    const { isScrollbarDisabled, toggleScrollbar } = useSettings();
     const { isMenuOpen, setMenuOpen } = useMobileMenu();
 
     const toggleMenu = () => setMenuOpen(!isMenuOpen);
@@ -93,15 +89,7 @@ export default function MobileMenu() {
                                     <AvatarImage src={"https://github.com/sheikh-abdul-aziz.png"} alt={"User Avatar"} />
                                     <AvatarFallback>{"Sheikh Abdul Aziz"}</AvatarFallback>
                                 </Avatar>
-                            </div>
-                            <div className="flex flex-row items-center justify-between">
-                                <Label className="text-sm font-normal">Disable Scrollbar</Label>
-                                <Switch id="scrollbar-toggle" checked={isScrollbarDisabled} onCheckedChange={toggleScrollbar} />
-                            </div>
-                            <div className="flex flex-row items-center justify-between">
-                                <Label className="text-sm font-normal">Maintenance</Label>
-                                <Switch id="scrollbar-toggle" checked={isMaintenance} onCheckedChange={toggleMaintenance} />
-                            </div>                            
+                            </div>                          
                         </div>
 
                         <Separator orientation="horizontal" className="my-3" />

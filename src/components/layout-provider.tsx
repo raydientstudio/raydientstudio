@@ -3,9 +3,9 @@
 import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Header from "./header";
-import BriefFooter from "./brief-footer"
 import MainFooter from "./main-footer"
 import { Main } from "./semantic/main";
+import BriefFooter from "./brief-footer";
 
 export function LayoutProvider({ children }: { children: ReactNode; }) {
 
@@ -57,8 +57,8 @@ export function LayoutProvider({ children }: { children: ReactNode; }) {
     return (
         <>
             {isDocsPage ? null : <Header />}
-            {isDocsPage ? <Main display={"flex"} direction={"column"} justify={"center"} items={"start"} className="bg-surface"> {/* Main for docs pages */} {children} </Main> : <Main display={"flex"} direction={"column"} justify={"center"} items={"start"} className="bg-background"> {/* Main for non-docs pages */} {children} </Main>}
-            {isBriefFooter ? <BriefFooter /> : <MainFooter />}
+            <Main display={"flex"} direction={"column"} justify={"center"} items={"start"} role={"main"} aria-hidden={"false"} className={isDocsPage ? "bg-surface" : "bg-background"}>{children}</Main>
+            {isBriefFooter ? (isDocsPage ? null : <BriefFooter />) : <MainFooter />}
         </>
     );
 }

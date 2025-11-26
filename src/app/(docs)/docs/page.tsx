@@ -9,7 +9,7 @@ import { docsRoutes } from "@/utils/routes";
 import DocsHeader from "@/components/docs-header";
 import DocsFooter from "@/components/docs-footer";
 
-export default function Docs() {
+export default function DocsPage() {
 	return (
 		<>
 			<SidebarProvider>
@@ -68,6 +68,10 @@ export default function Docs() {
 								Email: <Link href="mailto:info@raydientstudio.com" className="text-link hover:underline active:underline">info@raydientstudio.com</Link> <br />
 								Business Name: Raydient Studio™ <br />
 								Location: West Bengal, India
+							</p>
+
+							<p>
+								This documentation portal is maintained with utmost precision to uphold transparency, trust, and regulatory alignment in all our professional dealings.
 							</p>
 						</FlexLayout>
 						<DocsFooter raw={"/docs"} previous={"/"} next={docsRoutes[2]} />

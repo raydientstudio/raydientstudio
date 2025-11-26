@@ -26,8 +26,9 @@ const buttonVariants = cva(`${Poppins.className} antialiased inline-flex items-c
                 small: "h-8 px-3 text-xs",
                 large: "h-10 px-8",
                 action: "h-8 px-2 py-2 text-xs shadow-none",
-                icon: "h-8 w-8 px-2 py-2 shadow-none [&_svg]:text-muted-foreground hover:text-foreground active:text-foreground",
-                social: "h-8 w-8 px-2 py-2 [&_svg]:text-muted-foreground hover:text-foreground active:text-foreground",
+                icon: "h-8 w-8 px-2 py-2 shadow-none [&_svg]:text-muted-foreground [&_svg]:hover:text-foreground [&_svg]:active:text-foreground",
+                social: "h-8 w-8 px-2 py-2 [&_svg]:text-muted-foreground [&_svg]:hover:text-foreground [&_svg]:active:text-foreground",
+                route: "h-8 w-8 px-2 py-2 shadow-none [&_svg]:text-foreground [&_svg]:hover:text-muted-foreground [&_svg]:active:text-muted-foreground",
                 wide: "h-9 w-full px-4 py-2",
             },
             radius: {

@@ -9,6 +9,7 @@ const PointerIcon = memo(({ className }: { className?: string }) => {
         <div className={cn(`pointer-events-none disabled:opacity-50 absolute bg-background border-[2px] border-border rounded-full w-2 h-2`, className)} />
     );
 });
+
 PointerIcon.displayName = "Pointer Icon";
 
 const StatusIndicator = memo(({ className = "" }: { className?: string; }) => (

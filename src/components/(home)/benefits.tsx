@@ -1,18 +1,18 @@
 import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
-import { IconShield, IconPartnership, IconDesign, IconFuture } from "../miracle-ui/icons-advantages";
+import { IconShield, IconPartnership, IconDesign, IconFuture } from "../mipmap/icons-advantages";
 import SectionHeader from "./section-header";
 
 const info = {
-    title: "ADVANTAGES",
+    title: "BENEFITS OF US",
     subtitle: (
         <>
-            Your Success Beyond{" "}<br className="md:hidden" />Launch
+            Benefits Driving Results{" "}<br className="md:hidden" />Consistently
         </>
     ),
 };
 
-export default function Advantages() {
+export default function Benefits() {
 
     const items = [
         {

@@ -8,7 +8,7 @@ const SITE_TITLE = {
 };
 const SITE_ICON = {
     icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon-96x96.png",
     apple: "/apple-touch-icon.png",
 }
 const SITE_LOCALE = "en_US";

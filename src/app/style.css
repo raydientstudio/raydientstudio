@@ -21,6 +21,8 @@
 
   /* Components */
   --radius: 0.65rem;
+  --icon-background: oklch(0.145 0 0);
+  --icon-foreground: oklch(1 0 0);
   --background: oklch(0.985 0 0);
   --foreground: oklch(0.145 0 0);
   --surface: oklch(1 0 0);
@@ -75,6 +77,8 @@
   --unavailable: oklch(0.87 0.01 286.375 / 50%);
 
   /* Components */
+  --icon-background: oklch(0.975 0 0);
+  --icon-foreground: oklch(0.165 0 0);
   --background: oklch(0.105 0 0);
   --foreground: oklch(0.975 0 0);
   --surface: oklch(0.165 0 0);
@@ -130,6 +134,10 @@
   --color-available: var(--available);
   --color-available-shadow: var(--available-shadow);
   --color-unavailable: var(--unavailable);
+
+  /* Icon Colors */
+  --color-icon-background: var(--icon-background);
+  --color-icon-foreground: var(--icon-foreground);
 
   /* Components */
   --radius: var(--radius);
