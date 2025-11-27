@@ -22,7 +22,7 @@ import {
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar"
-import { IconRaydientStudio } from "./mipmap/drawable";
+import { IconRaydientStudio } from "./mipmap/icon-raydientstudio";
 
 // This is sample data.
 const data = {

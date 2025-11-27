@@ -23,7 +23,7 @@ interface GlyphProps extends SVGProps<SVGSVGElement> {
     className?: string;
 }
 
-const Background: FC<GlyphProps> = ({ size = 24, className = '', ...props }) => {
+const Background: FC<GlyphProps> = ({ size = 24, className = "", ...props }) => {
     return (
         <svg width={size} height={size} viewBox="0 0 1.5 1.5" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
             <path d="M0.03 0.03h1.44v1.44H0.03z" fill="currentColor" />
@@ -31,7 +31,7 @@ const Background: FC<GlyphProps> = ({ size = 24, className = '', ...props }) => 
     );
 };
 
-const Foreground: FC<GlyphProps> = ({ size = 24, className = '', ...props }) => {
+const Foreground: FC<GlyphProps> = ({ size = 24, className = "", ...props }) => {
     return (
         <svg width={size} height={size} viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
             <path d="M256 512H0L256 256V512Z" fill="currentColor" />

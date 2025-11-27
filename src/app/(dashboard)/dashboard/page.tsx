@@ -1,7 +1,7 @@
 'use client';
 
 import { useSettings } from "@/hooks/use-settings";
-import { Switch } from '@/components/ui/switch'; 
+import { Switch } from '@/components/ui/switch-old'; 
 import { Label } from "@/components/ui/label";
 
 export default function Dashboard() {

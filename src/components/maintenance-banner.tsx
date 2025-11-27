@@ -1,6 +1,6 @@
 import React from "react";
 import { Label } from "./ui/label";
-import { Switch } from "./ui/switch";
+import { Switch } from "./ui/switch-old";
 import { useSettings } from "../hooks/use-settings";
 
 function MaintenanceBanner() {

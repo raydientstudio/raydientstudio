@@ -4,13 +4,12 @@ import React, { memo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Separator } from "./ui/separator";
-import { IconRaydientStudio } from "./mipmap/drawable";
+import { IconRaydientStudio } from "./mipmap/icon-raydientstudio";
 import { DesktopMenu } from "./desktop-menu";
 import Search from "./(home)/search";
 import Notifications from "./(home)/notifications";
 import ThemeSwitcher from "./theme-switcher";
 import MobileMenu from "./mobile-menu";
-import IconWordmark from "./mipmap/raydient";
 
 const Header = () => {
 
@@ -30,13 +29,13 @@ const Header = () => {
                     {/* MOBILE */}
                     <div className="flex flex-row lg:hidden items-center gap-x-2">
                         {/* Logo */}
-                        <IconRaydientStudio onClick={() => navigateTo("/")} size={36} />
+                        <IconRaydientStudio size={36} onClick={() => navigateTo("/")} />
                     </div>
 
                     {/* DESKTOP */}
                     <div className="hidden lg:flex items-center gap-x-6">
                         {/* Logo */}
-                        <IconWordmark onClick={() => navigateTo("/")} width={175.7} height={16} />
+                        <IconRaydientStudio size={36} onClick={() => navigateTo("/")} />
 
                         {/* Vertical Divider */}
                         <Separator orientation="vertical" className="hidden data-[orientation=vertical]:h-4" />

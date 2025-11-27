@@ -1,27 +1,3 @@
-/** 
- * MIT License
- *
- * Copyright (c) [2025] [Miracle UI, Library] {@link https://github.com/Miracle-UI-Suite}.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -43,6 +19,18 @@ const sectionVariants = cva([],
                 7: "py-7",
                 8: "py-8",
                 9: "py-9"
+            },
+            width: {
+                auto: "w-auto",
+                fit: "w-fit",
+                full: "w-full",
+                screen: "w-screen"
+            },
+            height: {
+                auto: "h-auto",
+                fit: "h-fit",
+                full: "h-full",
+                screen: "h-screen"
             },
             gap: {
                 auto: "gap-auto",
@@ -115,6 +103,8 @@ const sectionVariants = cva([],
         },
         defaultVariants: {
             distance: 4,
+            width: "full",
+            height: "full",
             gap: "none",
             gapX: "none",
             gapY: "none",
@@ -130,10 +120,10 @@ export interface SectionProps extends React.HTMLAttributes<SectionElement>, Vari
     asChild?: boolean
 }
 
-const Section = React.forwardRef<SectionElement, SectionProps>(({ className, distance, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
+const Section = React.forwardRef<SectionElement, SectionProps>(({ className, distance, width, height, gap, gapX, gapY, spacingX, spacingY, asChild = false, ...props }, ref) => {
     const Semantic = asChild ? Slot : "section"
     return (
-        <Semantic className={cn(sectionVariants({ className, distance, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
+        <Semantic className={cn(sectionVariants({ className, distance, width, height, gap, gapX, gapY, spacingX, spacingY }))} ref={ref} {...props}/>
     )
 })
 

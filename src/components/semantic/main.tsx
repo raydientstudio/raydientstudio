@@ -164,7 +164,7 @@ const mainVariants = cva([],
             }
         },
         defaultVariants: {
-             overflow: "hidden",
+            overflow: "hidden",
             display: "flex",
             direction: "row",
             wrap: "wrap",

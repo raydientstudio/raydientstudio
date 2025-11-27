@@ -18,7 +18,7 @@ import {
 } from "@tabler/icons-react";
 import { JetBrains_Mono } from "@/fonts/local";
 import { Input } from "./ui/input";
-import IconWordmark from "./mipmap/raydient";
+import IconLettertype from "./mipmap/icon-lettertype";
 
 export default function MainFooter() {
 
@@ -104,7 +104,7 @@ export default function MainFooter() {
 
                     {/* Banner Section */}
                     <div className="flex flex-col items-center justify-center text-center bg-foreground text-primary-foreground p-8 gap-y-1.5 rounded-lg">
-                        <IconWordmark width={197.63} height={18} />
+                        <IconLettertype width={197.63} height={18} />
                     </div>
 
                     {/* Footer Links Grid */}

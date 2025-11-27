@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import React, { FC, SVGProps } from 'react';
+import React, { FC, MouseEventHandler, SVGProps } from 'react';
 
 interface IconProps extends SVGProps<SVGSVGElement> {
     overflow?: string;
@@ -9,26 +9,26 @@ interface IconProps extends SVGProps<SVGSVGElement> {
     fillColor?: string;
     strokeColor?: string;
     fill?: string;
-    strokeLinecap?: 'inherit' | 'butt' | 'round' | 'square';
-    strokeLinejoin?: 'inherit' | 'miter' | 'round' | 'bevel';
+    strokeLinecap?: "inherit" | "butt" | "round" | "square";
+    strokeLinejoin?: "inherit" | "miter" | "round" | "bevel";
     className?: string;
-    onClick?: React.MouseEventHandler<SVGSVGElement>;
+    onClick?: MouseEventHandler<SVGSVGElement>;
     viewBox?: string;
 }
 
-const IconWordmark: FC<IconProps> = ({
-    overflow = 'visible',
-    opacity = '1.0',
+const IconLettertype: FC<IconProps> = ({
+    overflow = "visible",
+    opacity = "1.0",
     width = 512,
     height = 53,
-    viewBox = '0 0 512 53',
-    className = '',
+    viewBox = "0 0 512 53",
+    className = "",
     strokeWidth = 1.5,
-    fillColor = 'currentColor',
-    fill = 'none',
-    strokeColor = 'currentColor',
-    strokeLinecap = 'round',
-    strokeLinejoin = 'round',
+    fillColor = "currentColor",
+    fill = "none",
+    strokeColor = "currentColor",
+    strokeLinecap = "round",
+    strokeLinejoin = "round",
     onClick,
     ...props
 }) => {
@@ -55,4 +55,4 @@ const IconWordmark: FC<IconProps> = ({
     );
 };
 
-export default IconWordmark;
+export default IconLettertype;
