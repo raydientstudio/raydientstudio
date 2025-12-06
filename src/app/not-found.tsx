@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { IconChevronRight, IconRefresh, IconSquareFilled } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { JetBrains_Mono } from "@/fonts/local";
+import Icon404 from "@/components/mipmap/icon-404";
 
 export default function NotFound() {
 
@@ -53,7 +53,7 @@ export default function NotFound() {
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center w-full h-fit gap-y-2">
-                        <Image src="/404.svg" width={424} height={244} alt="404" />
+                        <Icon404 width={192} height={64} />
                     </div>
                 </div>
             </div>

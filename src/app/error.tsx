@@ -1,7 +1,7 @@
 "use client";
 
+import Icon500 from "@/components/mipmap/icon-500";
 import { Button } from "@/components/ui/button";
-import React from "react";
 
 interface ErrorProps {
     error: Error;
@@ -17,6 +17,7 @@ export default function Error({ error, reset }: ErrorProps) {
             <Button onClick={() => reset()}>
                 Try Again
             </Button>
+            <Icon500 />
         </div>
     );
 }

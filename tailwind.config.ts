@@ -1,4 +1,12 @@
-module.exports = {
+const config = {
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '*.vercel.app',
+            },
+        ],
+    },
     content: [
         './src/**/*.{js,ts,jsx,tsx}',
         './app/**/*.{js,ts,jsx,tsx}',
@@ -32,3 +40,5 @@ module.exports = {
         }
     ]
 }
+
+export default config
