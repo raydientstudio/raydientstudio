@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
-import { JetBrains_Mono } from "@/fonts/local";
+import { Host_Grotesk } from "@/fonts/local";
 
 interface PortfolioCardProps {
     title: string
@@ -42,10 +42,10 @@ export function PortfolioCard({
                     )}
                     <div className="flex flex-row items-end w-full">
                         <div className="flex flex-row items-end gap-2">
-                            <Badge variant="outline" className={`${JetBrains_Mono.className}`}>
+                            <Badge variant="secondary" color={"blue"} className={`${Host_Grotesk.className}`}>
                                 {category}
                             </Badge>
-                            <Badge variant="outline" className={`${JetBrains_Mono.className}`}>
+                            <Badge variant="secondary" color={"green"} className={`${Host_Grotesk.className}`}>
                                 {type}
                             </Badge>
                         </div>

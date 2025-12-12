@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import {
     IconBrandBehance,
-    IconBrandDiscord,
     IconBrandDribbble,
     IconBrandInstagram,
+    IconBrandLinkedin,
     IconBrandMedium,
     IconBrandThreads,
     IconBrandX,
@@ -90,7 +90,7 @@ export default function MainFooter() {
         { href: "https://www.instagram.com/raydientstudio", icon: <IconBrandInstagram />, label: "instagram" },
         { href: "https://www.threads.net/@raydientstudio", icon: <IconBrandThreads />, label: "threads" },
         { href: "https://x.com/raydientstudio", icon: <IconBrandX />, label: "x" },
-        { href: "https://discord.gg/JjXJ2UZnDX", icon: <IconBrandDiscord />, label: "discord" },
+        { href: "https://www.linkedin.com/company/raydientstudio", icon: <IconBrandLinkedin />, label: "linkedin" },
         { href: "https://medium.com/@raydientstudio", icon: <IconBrandMedium />, label: "medium" },
         { href: "https://dribbble.com/raydientstudio", icon: <IconBrandDribbble />, label: "dribbble" },
         { href: "https://www.behance.net/raydientstudio", icon: <IconBrandBehance />, label: "behance" },

@@ -19,6 +19,38 @@
   --available-shadow: oklch(0.72 0.19 150 / 30%);
   --unavailable: oklch(0.87 0.01 286.375 / 90%);
 
+  /* Additional colors */
+
+  /* Solid Colors */
+  --red: oklch(0.64 0.21 25);
+  --green: oklch(0.72 0.19 150);
+  --blue: oklch(0.62 0.19 260);
+  --yellow: oklch(0.86 0.17 92);
+  --purple: oklch(0.63 0.23 304);
+  --pink: oklch(0.66 0.21 354);
+  --orange: oklch(0.70 0.19 48);
+  --teal: oklch(0.70 0.12 183);
+  --cyan: oklch(0.71 0.13 215);
+  --indigo: oklch(0.59 0.20 277);
+  --violet: oklch(0.61 0.22 293);
+  --gray: oklch(0.55 0.02 264);
+  --slate: oklch(0.55 0.04 257);
+
+  /* Semi-transparent colors */
+  --red-semi: oklch(0.64 0.21 25 / 13%);
+  --green-semi: oklch(0.72 0.19 150 / 13%);
+  --blue-semi: oklch(0.62 0.19 260 / 13%);
+  --yellow-semi: oklch(0.86 0.17 92 / 13%);
+  --purple-semi: oklch(0.63 0.23 304 / 13%);
+  --pink-semi: oklch(0.66 0.21 354 / 13%);
+  --orange-semi: oklch(0.70 0.19 48 / 13%);
+  --teal-semi: oklch(0.70 0.12 183 / 13%);
+  --cyan-semi: oklch(0.71 0.13 215 / 13%);
+  --indigo-semi: oklch(0.59 0.20 277 / 13%);
+  --violet-semi: oklch(0.61 0.22 293 / 13%);
+  --gray-semi: oklch(0.55 0.02 264 / 13%);
+  --slate-semi: oklch(0.55 0.04 257 / 13%);
+
   /* Components */
   --radius: 0.65rem;
   --icon-background: oklch(0.145 0 0);
@@ -75,6 +107,21 @@
   --available: oklch(0.63 0.17 149);
   --available-shadow: oklch(0.63 0.17 149 / 30%);
   --unavailable: oklch(0.87 0.01 286.375 / 50%);
+
+  /* Additional Colors */
+  --red: oklch(0.64 0.21 23);
+  --green: oklch(0.577 0.245 27.325);
+  --blue: oklch(0.577 0.245 27.325);
+  --yellow: oklch(0.577 0.245 27.325);
+  --purple: oklch(0.577 0.245 27.325);
+  --pink: oklch(0.577 0.245 27.325);
+  --orange: oklch(0.577 0.245 27.325);
+  --teal: oklch(0.577 0.245 27.325);
+  --cyan: oklch(0.577 0.245 27.325);
+  --indigo: oklch(0.577 0.245 27.325);
+  --violet: oklch(0.577 0.245 27.325);
+  --gray: oklch(0.577 0.245 27.325);
+  --slate: oklch(0.577 0.245 27.325);
 
   /* Components */
   --icon-background: oklch(0.975 0 0);
@@ -134,6 +181,21 @@
   --color-available: var(--available);
   --color-available-shadow: var(--available-shadow);
   --color-unavailable: var(--unavailable);
+
+  /* Additional Colors */
+  --color-red: var(--red);
+  --color-green: var(--green);
+  --color-blue: var(--blue);
+  --color-yellow: var(--yellow);
+  --color-purple: var(--purple);
+  --color-pink: var(--pink);
+  --color-orange: var(--orange);
+  --color-teal: var(--teal);
+  --color-cyan: var(--cyan);
+  --color-indigo: var(--indigo);
+  --color-violet: var(--violet);
+  --color-gray: var(--gray);
+  --color-slate: var(--slate);
 
   /* Icon Colors */
   --color-icon-background: var(--icon-background);
