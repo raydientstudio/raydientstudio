@@ -1,9 +1,7 @@
-import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Marquee } from "../ui/marquee";
 import SectionHeader from "./section-header";
-import { Space_Grotesk } from "@/fonts/local";
 
 const info = {
     title: "TESTIMONIALS",
@@ -145,7 +143,7 @@ const ReviewCard = ({
                     <h4 className="text-sm font-medium text-foreground">
                         {name}
                     </h4>
-                    <p className={`${Space_Grotesk.className} text-xs font-medium text-muted-foreground`}>{username}</p>
+                    <p className="text-xs font-medium text-muted-foreground">{username}</p>
                 </div>
             </div>
             <p className="mt-2 text-sm">{thread}</p>

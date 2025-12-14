@@ -42,10 +42,10 @@ export function PortfolioCard({
                     )}
                     <div className="flex flex-row items-end w-full">
                         <div className="flex flex-row items-end gap-2">
-                            <Badge variant="secondary" color={"blue"} className={`${Host_Grotesk.className}`}>
+                            <Badge color={"blue"} type={"semi"} className={`${Host_Grotesk.className}`}>
                                 {category}
                             </Badge>
-                            <Badge variant="secondary" color={"green"} className={`${Host_Grotesk.className}`}>
+                            <Badge color={"green"} type={"semi"} className={`${Host_Grotesk.className}`}>
                                 {type}
                             </Badge>
                         </div>

@@ -27,7 +27,7 @@ export default function NotFound() {
 
                         <div className="flex flex-row justify-start items-start gap-x-1.5">
                             <IconSquareFilled size={14} className="text-foreground" />
-                            <p className={`${JetBrains_Mono.className} antialiased font-semibold whitespace-nowrap text-error text-sm uppercase leading-none items-center translate-y-[0.5px] md:translate-y-0`}>
+                            <p className={`${JetBrains_Mono.className} antialiased font-semibold whitespace-nowrap text-foreground text-sm uppercase leading-none items-center translate-y-[0.5px] md:translate-y-0`}>
                                 Error code 404
                             </p>
                         </div>
@@ -42,17 +42,17 @@ export default function NotFound() {
                         </div>
 
                         <div className="flex flex-row overflow-visible justify-start items-start gap-x-4 md:gap-x-6">
-                            <Button onClick={() => navigateTo("/")} variant="filled" size="default" radius="large">
+                            <Button onClick={() => navigateTo("/")} variant="filled" size="default" radius="medium">
                                 <IconRefresh />
                                 Try Again
                             </Button>
-                            <Button onClick={() => navigateTo("/docs/404")} variant="tonal" size="default" radius="large">
+                            <Button onClick={() => navigateTo("/docs/404")} variant="tonal" size="default" radius="medium">
                                 Learn More
                                 <IconChevronRight />
                             </Button>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center w-full h-fit gap-y-2">
+                    <div className="flex flex-col justify-start items-center w-full h-fit gap-y-2 py-6">
                         <Icon404 width={192} height={64} />
                     </div>
                 </div>

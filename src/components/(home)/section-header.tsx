@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { JetBrains_Mono } from "@/fonts/local";
 import { IconSquareFilled } from "@tabler/icons-react";
 import { FlexLayout } from "../layout/flex-layout";

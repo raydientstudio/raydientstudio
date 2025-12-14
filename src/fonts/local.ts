@@ -1,5 +1,27 @@
 import localFont from 'next/font/local'
 
+const Geist = localFont({
+    src: [
+        {
+            path: './typeface/variable/Geist-Variable.woff2',
+            style: 'normal'
+        }
+    ],
+    variable: '--font-geist',
+    display: 'swap'
+})
+
+const Geist_Mono = localFont({
+    src: [
+        {
+            path: './typeface/variable/GeistMono-Variable.woff2',
+            style: 'normal'
+        }
+    ],
+    variable: '--font-geist-mono',
+    display: 'swap'
+})
+
 const Host_Grotesk = localFont({
     src: [
         {
@@ -44,4 +66,4 @@ const JetBrains_Mono = localFont({
     display: 'swap'
 })
 
-export { Host_Grotesk, Space_Grotesk, Poppins, JetBrains_Mono }
+export { Geist, Geist_Mono, Host_Grotesk, Space_Grotesk, Poppins, JetBrains_Mono }
