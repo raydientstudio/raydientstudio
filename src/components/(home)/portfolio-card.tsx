@@ -6,12 +6,19 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { Host_Grotesk } from "@/fonts/local";
+import { type TablerIcon } from "@tabler/icons-react";
 
 interface PortfolioCardProps {
     title: string
     description: string
-    category: string
-    type: string
+    category: {
+        label: string
+        icon?: TablerIcon
+    }
+    type: {
+        label: string
+        icon?: TablerIcon
+    }
     thumbnailUrl?: string
     brandUrl?: string
     caseStudyUrl?: string
@@ -43,10 +50,12 @@ export function PortfolioCard({
                     <div className="flex flex-row items-end w-full">
                         <div className="flex flex-row items-end gap-2">
                             <Badge color={"blue"} type={"semi"} className={`${Host_Grotesk.className}`}>
-                                {category}
+                                {category.icon && <category.icon />}
+                                {category.label}
                             </Badge>
-                            <Badge color={"green"} type={"semi"} className={`${Host_Grotesk.className}`}>
-                                {type}
+                            <Badge type={"outline"} className={`${Host_Grotesk.className}`}>
+                                {type.icon && <type.icon />}
+                                {type.label}
                             </Badge>
                         </div>
                         <span className="bg-background gap-4 shadow-none rounded-sm transition-transform group-hover:rotate-45 group-active:rotate-45 ml-auto" onClick={() => window.open(caseStudyUrl, "_blank")}>

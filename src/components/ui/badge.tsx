@@ -1,7 +1,7 @@
 import { forwardRef, HTMLAttributes, CSSProperties } from "react"
+import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { Slot } from "@radix-ui/react-slot"
 
 // List of available colors
 const colorList = [
@@ -12,7 +12,7 @@ const colorList = [
 const colorMap = Object.fromEntries(colorList.map((c) => [c, c]))
 
 export const badgeVariants = cva(
-    "inline-flex items-center justify-center rounded-full font-regular px-2 py-0.5 text-xs capitalize transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+    "inline-flex items-center justify-center rounded-full font-[450] px-2 py-0.5 gap-x-1 text-xs whitespace-nowrap capitalize leading-none tracking-normal transition-colors duration-250 ease-in-out focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0",
     {
         variants: {
             type: {
@@ -22,8 +22,8 @@ export const badgeVariants = cva(
             },
             color: colorMap,
             size: {
-                sm: "h-5 text-xs px-2",
-                md: "h-6 text-xs px-3",
+                sm: "h-5 text-xs px-1.5",
+                md: "h-6 text-xs px-2",
             },
         },
         defaultVariants: {
@@ -53,9 +53,9 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(({ className, color
             colorStyles.color = `var(--${color})`
             colorStyles.borderColor = "transparent"
         } else if (type === "outline") {
-            colorStyles.backgroundColor = `color-mix(in srgb, var(--${color}) 13%, transparent)`
-            colorStyles.color = `var(--${color})`
-            colorStyles.borderColor = `color-mix(in srgb, var(--${color}) 18%, transparent)`
+            colorStyles.backgroundColor = "transparent"
+            colorStyles.color = `var(--muted-foreground)`
+            colorStyles.borderColor = `var(--border)`
         }
 
         return (

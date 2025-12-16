@@ -52,7 +52,7 @@ export default function NotFound() {
                             </Button>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start items-center w-full h-fit gap-y-2 py-6">
+                    <div className="flex flex-col justify-start items-start w-full h-fit gap-y-2 py-6">
                         <Icon404 width={192} height={64} />
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
 import {
@@ -10,7 +10,7 @@ import {
     IconFlameFilled,
     IconHeadset,
     IconHourglassFilled,
-    IconRosetteDiscountCheckFilled,
+    IconRosetteDiscountCheck,
     IconSparkles,
     IconSquareFilled,
     IconTopologyRing,
@@ -236,7 +236,7 @@ export default function PricingCards() {
                                     <ul className="w-full list-none px-0 mb-0">
                                         {plan.features.map((feature, idx) => (
                                             <li key={idx} className="flex flex-row gap-x-2 items-center mb-4 last:mb-0">
-                                                <IconRosetteDiscountCheckFilled size={18} className="text-success" />
+                                                <IconRosetteDiscountCheck size={18} className="text-primary" />
                                                 <span className="text-sm text-muted-foreground">{feature}</span>
                                             </li>
                                         ))}

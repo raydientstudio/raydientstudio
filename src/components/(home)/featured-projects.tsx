@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
 import SectionHeader from "./section-header";
 import { PortfolioCard } from "./portfolio-card";
+import { IconBabyBottle } from "@tabler/icons-react";
 
 const info = {
     title: "FEATURED PROJECTS",
@@ -22,8 +22,12 @@ export default function FeaturedProjects() {
         {
             title: "Lorem Ipsum",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
-            category: "Tech",
-            type: "Website",
+            category: {
+                label: "Branding"
+            },
+            type: {
+                label: "Website"
+            },
             imageUrl: imageUrl,
             brandLogo: brandLogo,
             caseStudyUrl: "#",
@@ -31,8 +35,14 @@ export default function FeaturedProjects() {
         {
             title: "Lorem Ipsum",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
-            category: "SaaS",
-            type: "Website",
+            category: {
+                icon: IconBabyBottle,
+                label: "Branding"
+            },
+            type: {
+                icon: IconBabyBottle,
+                label: "Website"
+            },
             imageUrl: imageUrl,
             brandLogo: brandLogo,
             caseStudyUrl: "#",
@@ -40,8 +50,14 @@ export default function FeaturedProjects() {
         {
             title: "Lorem Ipsum",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
-            category: "E-commerce",
-            type: "Website",
+            category: {
+                icon: IconBabyBottle,
+                label: "Branding"
+            },
+            type: {
+                icon: IconBabyBottle,
+                label: "Website"
+            },
             imageUrl: imageUrl,
             brandLogo: brandLogo,
             caseStudyUrl: "#",
@@ -49,8 +65,14 @@ export default function FeaturedProjects() {
         {
             title: "Lorem Ipsum",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
-            category: "Marketing",
-            type: "Website",
+            category: {
+                icon: IconBabyBottle,
+                label: "Branding"
+            },
+            type: {
+                icon: IconBabyBottle,
+                label: "Website"
+            },
             imageUrl: imageUrl,
             brandLogo: brandLogo,
             caseStudyUrl: "#",

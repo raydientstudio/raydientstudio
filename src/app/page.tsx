@@ -2,7 +2,6 @@ import FAQ from "@/components/(home)/faq";
 import FeaturedProjects from "@/components/(home)/featured-projects";
 import Hero from "@/components/(home)/hero";
 import PricingCards from "@/components/(home)/pricing-cards";
-import RecentProjects from "@/components/recent-projects";
 import Services from "@/components/(home)/services";
 import WhyChooseUs from "@/components/(home)/why-choose-us";
 import Newsletter from "@/components/newsletter";
@@ -20,7 +19,6 @@ export default function HomePage() {
             <Services /> {/* Services */}
             <Benefits /> {/* Strategic Edge We’ve */}
             <FeaturedProjects /> {/* Featured Projects */}
-            <RecentProjects /> {/* Recent Projects */}
             <WhyChooseUs /> {/* Why Choose Us */}
             <PricingCards /> {/* Pricing Cards */}
             <Testimonial />
