@@ -8,6 +8,6 @@ export default function manifest(): MetadataRoute.Manifest {
         description: SITE_DESCRIPTION,
         start_url: SITE_START_URL,
         display: SITE_DISPLAY,
-        icons: [...SITE_ICONS]
-    }
+        icons: SITE_ICONS
+    };
 }
