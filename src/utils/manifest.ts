@@ -5,11 +5,6 @@ const SITE_START_URL = '/';
 const SITE_DISPLAY = 'standalone';
 const SITE_ICONS = [
     {
-        src: '/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon'
-    },
-    {
         src: '/android-chrome-192x192.png',
         sizes: '192x192',
         type: 'image/png'

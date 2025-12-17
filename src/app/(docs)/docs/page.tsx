@@ -1,6 +1,5 @@
 'use client';
 
-import React from "react";
 import Link from "next/link";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
