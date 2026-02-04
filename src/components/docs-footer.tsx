@@ -24,7 +24,7 @@ const DocsFooter = ({ raw, previous, next }: { raw: string, previous: string, ne
     );
 
     return (
-        <div className={`fixed z-10 bottom-0 flex h-16 shrink-0 rounded-t-lg border-t border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80 items-center transition-[left, width, height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12
+        <div className={`fixed z-10 bottom-0 flex h-16 shrink-0 rounded-t-lg border-t border-border border-dashed bg-surface backdrop-blur supports-[backdrop-filter]:bg-surface/80 items-center transition-[left,width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12
                  ${state === "expanded" ? "left-0 md:left-[256px] w-[calc(100%-0px)] md:w-[calc(100%-256px)]" : "left-0 md:left-[48px] w-[calc(100%-0px)] md:w-[calc(100%-48px)]"}`}>
             <FlexLayout direction={"row"} items={"center"} gapX={2} paddingX={4} width={"full"}>
                 <ButtonGroup orientation={"horizontal"}>

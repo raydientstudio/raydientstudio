@@ -2,7 +2,6 @@
 
 import SectionHeader from "./section-header";
 import { PortfolioCard } from "./portfolio-card";
-import { IconBabyBottle } from "@tabler/icons-react";
 
 const info = {
     title: "FEATURED PROJECTS",
@@ -13,8 +12,8 @@ const info = {
     ),
 };
 
-const brandLogo = "https://raydientstudio.vercel.app/android-chrome-512x512.png";
-const imageUrl = "https://raydientstudio.vercel.app/og-image.jpg";
+const brandLogo = "https://github.com/sheikh-abdul-aziz.png";
+const imageUrl = "https://github.com/sheikh-abdul-aziz.png";
 
 export default function FeaturedProjects() {
 
@@ -36,11 +35,9 @@ export default function FeaturedProjects() {
             title: "Lorem Ipsum",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
             category: {
-                icon: IconBabyBottle,
                 label: "Branding"
             },
             type: {
-                icon: IconBabyBottle,
                 label: "Website"
             },
             imageUrl: imageUrl,
@@ -51,11 +48,9 @@ export default function FeaturedProjects() {
             title: "Lorem Ipsum",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
             category: {
-                icon: IconBabyBottle,
                 label: "Branding"
             },
             type: {
-                icon: IconBabyBottle,
                 label: "Website"
             },
             imageUrl: imageUrl,
@@ -66,11 +61,9 @@ export default function FeaturedProjects() {
             title: "Lorem Ipsum",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Etiam vitae urna at erat cursus cursus.",
             category: {
-                icon: IconBabyBottle,
                 label: "Branding"
             },
             type: {
-                icon: IconBabyBottle,
                 label: "Website"
             },
             imageUrl: imageUrl,
@@ -93,7 +86,7 @@ export default function FeaturedProjects() {
                                 category={project.category}
                                 type={project.type}
                                 thumbnailUrl={project.brandLogo}
-                                brandUrl={project.brandLogo}
+                                brandUrl={project.imageUrl}
                                 caseStudyUrl={project.caseStudyUrl}
                             />
                         ))}

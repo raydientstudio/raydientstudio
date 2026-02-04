@@ -1,5 +1,27 @@
 import localFont from 'next/font/local'
 
+const GoogleSans_Flex = localFont({
+    src: [
+        {
+            path: './typeface/variable/GoogleSans-Flex.ttf',
+            style: 'normal'
+        }
+    ],
+    variable: '--font-google-sans-flex',
+    display: 'swap'
+})
+
+const GoogleSans_Code = localFont({
+    src: [
+        {
+            path: './typeface/variable/GoogleSans-Code.ttf',
+            style: 'normal'
+        }
+    ],
+    variable: '--font-google-sans-code',
+    display: 'swap'
+})
+
 const Geist = localFont({
     src: [
         {
@@ -66,4 +88,4 @@ const JetBrains_Mono = localFont({
     display: 'swap'
 })
 
-export { Geist, Geist_Mono, Host_Grotesk, Space_Grotesk, Poppins, JetBrains_Mono }
+export { GoogleSans_Flex, GoogleSans_Code, Geist, Geist_Mono, Host_Grotesk, Space_Grotesk, Poppins, JetBrains_Mono };

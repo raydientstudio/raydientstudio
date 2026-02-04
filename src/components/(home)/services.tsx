@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 import { IconContract, IconDevelopment, IconPaint, IconVector } from "../mipmap/icons-services";
 import SectionHeader from "./section-header";
+import { ItemMedia } from "../ui/item";
 
 const info = {
     title: "SERVICES",
@@ -60,7 +61,9 @@ export default function Services() {
                         {services.map((service) => (
                             <Card key={service.id} onClick={() => handleNavigation(service.serviceUrl ?? "/")} className="flex flex-col justify-start items-start hover:bg-muted/80 active:bg-muted/80 transition-colors duration-270 ease-in-out cursor-pointer">
                                 <CardContent>
-                                    {service.icon}
+                                    <ItemMedia variant="icon">
+                                        {service.icon}
+                                    </ItemMedia>
                                     <CardTitle>{service.title}</CardTitle>
                                     <CardDescription>{service.description}</CardDescription>
                                 </CardContent>

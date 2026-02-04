@@ -197,7 +197,7 @@ export default function MainFooter() {
                         {/* Copyright & Attributions */}
                         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between text-xs sm:text-sm gap-2 border border-border border-solid p-4 rounded-lg">
                             <p className="text-muted-foreground text-center md:text-left">
-                                Copyright © 2025
+                                Copyright © 2026
                                 {" "}
                                 <Link href="https://raydientstudio.com" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">
                                     Raydient Studio

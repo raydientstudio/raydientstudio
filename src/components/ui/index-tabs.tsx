@@ -9,11 +9,11 @@ type TabItem = {
     href: string
 }
 
-interface InexTabProps {
+interface IndexTabProps {
     tabs: TabItem[]
 }
 
-export default function InexTab({ tabs }: InexTabProps) {
+export default function IndexTab({ tabs }: IndexTabProps) {
     const [hoveredIndex, setHoveredIndex] = useState<number | undefined>(undefined)
     const [activeIndex, setActiveIndex] = useState(0)
     const [hoverStyle, setHoverStyle] = useState({})
@@ -62,7 +62,7 @@ export default function InexTab({ tabs }: InexTabProps) {
         <div className="relative">
             {/* Hover Highlight */}
             <div
-                className="absolute h-[30px] transition-all duration-300 ease-out bg-accent rounded-[6px] flex items-center"
+                className="absolute h-[30px] transition-all duration-300 ease-out bg-muted rounded-[6px] flex items-center"
                 style={{
                     ...hoverStyle,
                     opacity: hoveredIndex !== undefined ? 1 : 0,

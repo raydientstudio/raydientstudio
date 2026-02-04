@@ -1,7 +1,7 @@
 import "./style.css";
 import { ReactNode } from "react";
 import { Metadata } from "next";
-import { Host_Grotesk, JetBrains_Mono } from "@/fonts/local";
+import { JetBrains_Mono, Host_Grotesk } from "@/fonts/local";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { SettingsProvider } from "@/hooks/use-settings";
 import { MobileMenuProvider } from "@/components/mobile-menu";

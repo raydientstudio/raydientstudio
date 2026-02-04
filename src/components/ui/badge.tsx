@@ -12,7 +12,7 @@ const colorList = [
 const colorMap = Object.fromEntries(colorList.map((c) => [c, c]))
 
 export const badgeVariants = cva(
-    "inline-flex items-center justify-center rounded-full font-[450] px-2 py-0.5 gap-x-1 text-xs whitespace-nowrap capitalize leading-none tracking-normal transition-colors duration-250 ease-in-out focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0",
+    "inline-flex items-center justify-center rounded-md font-[450] px-2 py-0.5 gap-x-1 text-xs whitespace-nowrap capitalize leading-none tracking-normal transition-colors duration-250 ease-in-out focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0",
     {
         variants: {
             type: {
@@ -25,11 +25,20 @@ export const badgeVariants = cva(
                 sm: "h-5 text-xs px-1.5",
                 md: "h-6 text-xs px-2",
             },
+            radius: {
+                none: "rounded-none",
+                small: "rounded-sm",
+                medium: "rounded-md",
+                large: "rounded-lg",
+                extraLarge: "rounded-xl",
+                full: "rounded-full",
+            },
         },
         defaultVariants: {
             color: "blue",
             type: "solid",
             size: "md",
+            radius: "medium",
         },
     }
 )
@@ -38,7 +47,7 @@ export interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, "color
     asChild?: boolean
 }
 
-export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(({ className, color = "blue", type = "solid", size, asChild = false, style, ...props }, ref) => {
+export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(({ className, color = "blue", type = "solid", size, radius, asChild = false, style, ...props }, ref) => {
 
         const Component = asChild ? Slot : "span"
 
@@ -61,7 +70,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(({ className, color
         return (
             <Component
                 ref={ref}
-                className={cn(badgeVariants({ type, size }), "border", className)}
+                className={cn(badgeVariants({ type, size, radius, color }), "border", className)}
                 style={{ ...colorStyles, ...style }}
                 {...props}
             />

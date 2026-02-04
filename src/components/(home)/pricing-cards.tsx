@@ -10,7 +10,7 @@ import {
     IconFlameFilled,
     IconHeadset,
     IconHourglassFilled,
-    IconRosetteDiscountCheck,
+    IconRosetteDiscountCheckFilled,
     IconSparkles,
     IconSquareFilled,
     IconTopologyRing,
@@ -20,6 +20,7 @@ import {
 } from "@tabler/icons-react";
 import SectionHeader from "./section-header";
 import { Poppins } from "@/fonts/local";
+import { AnimatedTabs, TabsContent, TabsList, TabsTrigger } from "../ui/animated-tabs";
 
 const info = {
     title: "PRICING PLANS",
@@ -49,7 +50,7 @@ const pricingData = [
     {
         id: 1,
         icon: "topology",
-        title: "Basic Plan",
+        title: "Essential Plan",
         squares: [
             { size: 14, className: "text-foreground" },
             { size: 12, className: "text-ring/30" },
@@ -113,7 +114,7 @@ const pricingData = [
     {
         id: 3,
         icon: "topologyStar2",
-        title: "Premium Plan",
+        title: "Enterprise Plan",
         squares: [
             { size: 12, className: "text-ring/30" },
             { size: 12, className: "text-ring/30" },
@@ -124,7 +125,7 @@ const pricingData = [
         tagicon: "clockDollar",
         tagline: "Valuable",
         isVisible: "flex",
-        price: "$1,199",
+        price: "$1,499",
         validity: "/One time",
         buttonLabel: "Start Your Project",
         benefitIcons: ["clock", "headset"],
@@ -156,12 +157,12 @@ const pricingData = [
         tagicon: "hourglass",
         tagline: "Limited",
         isVisible: "flex",
-        price: "$5,199",
+        price: "$2,999",
         validity: "/Per month",
         buttonLabel: "Start Your Project",
         benefitIcons: ["clock", "headset"],
         benefits: [
-            "Project timeline: 6-12 months",
+            "Project timeline: Ongoing",
             "Priority Support",
         ],
         listTitle: "What you will get?",
@@ -185,66 +186,92 @@ export default function PricingCards() {
             <div className="w-full h-auto px-4 py-0">
                 <div className="flex flex-col justify-center items-start text-left gap-y-6 left-0 right-0 max-w-7xl mx-auto">
                     <SectionHeader info={info} />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 w-full h-auto gap-6 lg:gap-8">
-                        {plans.map((plan) => (
-                            <div key={plan.id} className="flex flex-col relative overflow-hidden rounded-lg border border-border bg-surface text-card-foreground justify-start items-start shadow-[0.5px_0.5px_1px_rgba(0,0,0,0.03)] w-full">
-                                <div className={`${plan.isVisible} flex-row justify-start items-center w-auto h-5 absolute top-0 right-0 gap-x-1 px-2 py-2 rounded-bl-lg bg-primary text-primary-foreground`}>
-                                    {iconMap[plan.tagicon as keyof typeof iconMap]}
-                                    <h4 className="text-[10px] font-medium tracking-tight leading-none uppercase">{plan.tagline}</h4>
-                                </div>
-                                <div className="flex flex-row justify-between items-start p-6 mt-4 w-full">
-                                    <div className="flex flex-row justify-start items-center gap-x-1.5 w-auto h-6">
-                                        <div className="flex justify-center items-center bg-foreground text-surface rounded-sm h-full px-1">{iconMap[plan.icon as keyof typeof iconMap]}</div>
-                                        <div className="flex justify-center items-center border border-border rounded-sm h-full px-1.5">
-                                            <h5 className="font-bold leading-[1.3] whitespace-nowrap tracking-tight text-xs uppercase translate-y-[0.5px] md:translate-y-0">{plan.title}</h5>
+                    <AnimatedTabs tabs={[
+                        { value: "brand", label: "Brand" },
+                        { value: "web", label: "Website" },
+                        { value: "app", label: "Mobile App" },
+                        { value: "product", label: "Product" },
+                    ]} defaultValue="web">
+                        <div className="flex border border-border bg-surface p-1 mt-2 mb-0 rounded-md w-full md:w-auto">
+                            <TabsList>
+                                <TabsTrigger value="brand">Brand</TabsTrigger>
+                                <TabsTrigger value="web">Website</TabsTrigger>
+                                <TabsTrigger value="app">Mobile App</TabsTrigger>
+                                <TabsTrigger value="product">Product</TabsTrigger>
+                            </TabsList>
+                        </div>
+                        <TabsContent value="brand">
+                            <p className="text-sm text-muted-foreground">Brand design pricing plans will be available soon. Stay tuned!</p>
+                        </TabsContent>
+                        <TabsContent value="web">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 w-full h-auto gap-6 lg:gap-8">
+                                {plans.map((plan) => (
+                                    <div key={plan.id} className="flex flex-col relative overflow-hidden rounded-lg border border-border bg-surface text-card-foreground justify-start items-start shadow-[0.5px_0.5px_1px_rgba(0,0,0,0.03)] w-full">
+                                        <div className={`${plan.isVisible} flex-row justify-start items-center w-auto h-5 absolute top-0 right-0 gap-x-1 px-2 py-2 rounded-bl-lg bg-primary text-primary-foreground`}>
+                                            {iconMap[plan.tagicon as keyof typeof iconMap]}
+                                            <h4 className="text-[10px] font-medium tracking-normal leading-none uppercase">{plan.tagline}</h4>
+                                        </div>
+                                        <div className="flex flex-row justify-between items-start p-6 mt-4 w-full">
+                                            <div className="flex flex-row justify-start items-center gap-x-1.5 w-auto h-6">
+                                                <div className="flex justify-center items-center bg-foreground text-surface rounded-sm h-full px-1">{iconMap[plan.icon as keyof typeof iconMap]}</div>
+                                                <div className="flex justify-center items-center border border-border rounded-sm h-full px-1.5">
+                                                    <h5 className="font-bold leading-[1.3] whitespace-nowrap tracking-tight text-xs uppercase translate-y-[0.5px] md:translate-y-0">{plan.title}</h5>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-row justify-center items-center gap-x-1">
+                                                {plan.squares.map((square, idx) => (
+                                                    <IconSquareFilled key={idx} size={square.size} className={square.className} />
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col justify-start items-start px-6 gap-y-4 pb-4 w-full h-auto">
+                                            <div className="flex flex-row justify-start items-center gap-x-2">
+                                                <p className="text-4xl font-semibold">{plan.price}</p>
+                                                <p className="text-xs text-muted-foreground font-medium translate-y-2">
+                                                    {plan.validity}
+                                                </p>
+                                            </div>
+                                            <p className="text-sm text-muted-foreground leading-[1.4]">{plan.description}</p>
+                                            <Button variant={"filled"} size={"wide"} radius={"medium"}>
+                                                <IconCornerDownRight />
+                                                {plan.buttonLabel}
+                                            </Button>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center w-full h-auto gap-y-4 px-6">
+                                            {plan.benefits && (
+                                                <ul className="w-full list-none space-y-2">
+                                                    {plan.benefits.map((benefit, idx) => (
+                                                        <li key={idx} className="flex flex-row gap-x-2 text-foreground items-center">
+                                                            {iconMap[plan.benefitIcons[idx] as keyof typeof iconMap]}
+                                                            <span className="text-sm whitespace-nowrap">{benefit}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                            <Separator orientation="horizontal" className="mt-2.5 h-[0.5px]" />
+                                        </div>
+                                        <div className="flex flex-col justify-start items-start w-full h-auto p-6 gap-y-4">
+                                            <h6 className={`${Poppins.className} text-base font-medium tracking-tight text-foreground`}>{plan.listTitle}</h6>
+                                            <ul className="w-full list-none px-0 mb-0">
+                                                {plan.features.map((feature, idx) => (
+                                                    <li key={idx} className="flex flex-row gap-x-2 items-center mb-4 last:mb-0">
+                                                        <IconRosetteDiscountCheckFilled size={18} className="text-primary" />
+                                                        <span className="text-sm text-muted-foreground">{feature}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-center items-center gap-x-1">
-                                        {plan.squares.map((square, idx) => (
-                                            <IconSquareFilled key={idx} size={square.size} className={square.className} />
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="flex flex-col justify-start items-start px-6 gap-y-4 pb-4 w-full h-auto">
-                                    <div className="flex flex-row justify-start items-center gap-x-2">
-                                        <p className="text-4xl font-semibold">{plan.price}</p>
-                                        <p className="text-xs text-muted-foreground font-medium translate-y-2">
-                                            {plan.validity}
-                                        </p>
-                                    </div>
-                                    <p className="text-sm text-muted-foreground leading-[1.4]">{plan.description}</p>
-                                    <Button variant={"filled"} size={"wide"} radius={"medium"}>
-                                        <IconCornerDownRight />
-                                        {plan.buttonLabel}
-                                    </Button>
-                                </div>
-                                <div className="flex flex-col justify-center items-center w-full h-auto gap-y-4 px-6">
-                                    {plan.benefits && (
-                                        <ul className="w-full list-none space-y-2">
-                                            {plan.benefits.map((benefit, idx) => (
-                                                <li key={idx} className="flex flex-row gap-x-2 text-foreground items-center">
-                                                    {iconMap[plan.benefitIcons[idx] as keyof typeof iconMap]}
-                                                    <span className="text-sm whitespace-nowrap">{benefit}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                    <Separator orientation="horizontal" className="mt-2.5 h-[0.5px]" />
-                                </div>
-                                <div className="flex flex-col justify-start items-start w-full h-auto p-6 gap-y-4">
-                                    <h6 className={`${Poppins.className} text-base font-medium tracking-tight text-foreground`}>{plan.listTitle}</h6>
-                                    <ul className="w-full list-none px-0 mb-0">
-                                        {plan.features.map((feature, idx) => (
-                                            <li key={idx} className="flex flex-row gap-x-2 items-center mb-4 last:mb-0">
-                                                <IconRosetteDiscountCheck size={18} className="text-primary" />
-                                                <span className="text-sm text-muted-foreground">{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
+                        </TabsContent>
+                        <TabsContent value="app">
+                            <p className="text-sm text-muted-foreground">Mobile app design pricing plans will be available soon. Stay tuned!</p>
+                        </TabsContent>
+                        <TabsContent value="product">
+                            <p className="text-sm text-muted-foreground">Product design pricing plans will be available soon. Stay tuned!</p>
+                        </TabsContent>
+                    </AnimatedTabs>
                 </div>
             </div>
         </section>

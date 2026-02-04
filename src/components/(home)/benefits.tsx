@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 import { IconShield, IconPartnership, IconDesign, IconFuture } from "../mipmap/icons-advantages";
 import SectionHeader from "./section-header";
+import { ItemMedia } from "../ui/item";
 
 const info = {
     title: "BENEFITS OF US",
@@ -50,7 +51,9 @@ export default function Benefits() {
                         {items.map((item) => (
                             <Card key={item.id} className="flex flex-col justify-start items-center hover:bg-muted/80 active:bg-muted/80 transition-colors duration-270 ease-in-out cursor-pointer">
                                 <CardContent>
-                                    {item.icon}
+                                    <ItemMedia variant="icon">
+                                        {item.icon}
+                                    </ItemMedia>
                                     <CardTitle>{item.title}</CardTitle>
                                     <CardDescription>{item.description}</CardDescription>
                                 </CardContent>

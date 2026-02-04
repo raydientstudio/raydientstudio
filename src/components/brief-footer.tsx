@@ -14,7 +14,7 @@ export default function BriefFooter({ className }: BriefFooterProps) {
                     <div className="flex flex-col md:flex-row items-center justify-center md:justify-between text-xs sm:text-sm gap-2">
                         <div className="flex flex-wrap text-center md:text-left justify-center md:justify-start">
                             <p className="text-muted-foreground">
-                                Copyright © 2025{" "}
+                                Copyright © 2025-2026{" "}
                                 <Link href="https://raydientstudio.com">
                                     <span className="text-muted-foreground hover:text-foreground">
                                         Raydient Studio

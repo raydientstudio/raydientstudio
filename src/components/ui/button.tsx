@@ -8,7 +8,7 @@ const buttonVariants = cva(`${Poppins.className} antialiased inline-flex items-c
     {
         variants: {
             variant: {
-                primary: "bg-primary/95 text-primary-foreground hover:bg-primary active:bg-primary hover:shadow-none active:shadow-none shadow-[inset_0_-3px_0_var(--primary)]",
+                primary: "bg-primary text-primary-foreground hover:bg-primary active:bg-primary hover:shadow-none active:shadow-none shadow-[inset_0_-3px_0_var(--primary)]",
                 secondary: "bg-surface text-foreground hover:bg-secondary active:bg-secondary hover:text-secondary-foreground active:text-secondary-foreground border border-border border-solid hover:shadow-none active:shadow-none shadow-[inset_0_-3px_0_var(--secondary)]",
                 alert: "bg-transparent text-destructive/80 hover:bg-destructive/10 hover:text-destructive active:bg-destructive/10 active:text-destructive",
                 destructive: "bg-destructive text-primary-foreground hover:text-primary-foreground/90 active:text-primary-foreground/90 hover:bg-destructive/80 active:bg-destructive/80 shadow-xs",
