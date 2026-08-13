@@ -1,0 +1,28 @@
+.section-main {
+    width: 100%;
+    height: fit-content;
+    padding-block: 64px;
+    padding-inline: 24px;
+    border-bottom-style: var(--border-style);
+    border-bottom-width: 1px;
+    border-color: var(--border);
+}
+
+@property --border-style {
+    syntax: "*";
+    inherits: false;
+    initial-value: solid;
+}
+
+.container-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
+    row-gap: 44px;
+    left: 0px;
+    right: 0px;
+    max-width: 1280px;
+    margin-inline: auto;
+}

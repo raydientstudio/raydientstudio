@@ -1,0 +1,153 @@
+/* Pulsar animation for available status */
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 var(--available);
+    }
+    30% {
+        transform: scale(1);
+        box-shadow: 0 0 0 3px var(--available-shadow);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+/* Pulsar animation for available status */
+.animate-pulsar {
+    animation: pulsar 2s infinite ease-in-out;
+    border-radius: 100%;
+}
+
+.menu {
+    --size: 28px;
+    width: var(--size);
+    height: var(--size);
+    overflow: visible;
+}
+
+.menu-btn {
+    overflow: visible;
+}
+
+.line {
+    transform-box: view-box;
+    transform-origin: 12px 12px;
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+    stroke: var(--color-muted-foreground);
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.line-top {
+    transform: translateY(-5px);
+}
+
+.line-bottom {
+    transform: translateY(5px);
+}
+
+.menu-btn.isOpen .line-top {
+    transform: translateY(0) rotate(45deg);
+}
+
+.menu-btn.isOpen .line-bottom {
+    transform: translateY(0) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .line {
+        transition: none;
+    }
+}
+/* Marquee animation for infinite scroll */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 20s infinite linear;
+}
+
+@keyframes marquee-horizontal {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes marquee-vertical {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.animate-marquee-horizontal {
+    animation: marquee-horizontal var(--marquee-duration, 30s) linear infinite;
+}
+
+.animate-marquee-vertical {
+    animation: marquee-vertical var(--marquee-duration, 30s) linear infinite;
+}
+
+.animate-marquee-horizontal, .animate-marquee-vertical {
+    backface-visibility: hidden; /* Improves performance by preventing rendering of the back face */
+    transform: translateZ(0); /* Creates a new stacking context for smoother animations */
+    touch-action: none; /* Prevents touch scrolling from interfering with the animation */
+}
+
+.animate-marquee-horizontal.reverse {
+    animation-direction: reverse;
+}
+
+.animate-marquee-vertical.reverse {
+    animation-direction: reverse;
+}
+
+/* Adding hover pause functionality for marquee */
+@media (hover: hover) {
+    .animate-marquee-horizontal.pause-on-hover:hover {
+        animation-play-state: paused;
+    }
+
+    .animate-marquee-vertical.pause-on-hover:hover {
+        animation-play-state: paused;
+    }
+
+    /* Group hover support for nested elements */
+    .group:hover .animate-marquee-horizontal.pause-on-hover {
+        animation-play-state: paused;
+    }
+
+    .group:hover .animate-marquee-vertical.pause-on-hover {
+        animation-play-state: paused;
+    }
+}
+
+.animate-marquee-horizontal.pause-on-hover:active {
+    animation-play-state: paused;
+}
+
+.animate-marquee-vertical.pause-on-hover:active {
+    animation-play-state: paused;
+}
+
+/* Group hover support for nested elements */
+.group:active .animate-marquee-horizontal.pause-on-hover {
+    animation-play-state: paused;
+}
+
+.group:active .animate-marquee-vertical.pause-on-hover {
+    animation-play-state: paused;
+}

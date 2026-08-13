@@ -1,0 +1,7 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1024" height="1024" fill="white"/>
+<path d="M256 768L512 512H256V768Z" fill="currentColor"/>
+<path d="M256 512C397.385 512 512 397.385 512 256H256V512Z" fill="currentColor"/>
+<path d="M512 256V512H640C710.692 512 768 454.692 768 384C768 313.308 710.692 256 640 256H512Z" fill="currentColor"/>
+<path d="M512 768V512C653.385 512 768 626.615 768 768H512Z" fill="currentColor"/>
+</svg>

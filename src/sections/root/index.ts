@@ -1,0 +1,12 @@
+export { default as Hero } from "./hero";
+export { default as TrustedBrands } from "./trusted-brands";
+export { default as Services } from "./services";
+export { default as FeaturedProjects } from "./featured-projects";
+export { default as Benefits } from "./benefits";
+export { default as WhyChooseUs } from "./why-choose-us";
+export { default as PerformanceMetrics } from "./metrics";
+export { default as EngineeringPipeline } from "./pipeline";
+export { default as Testimonial } from "./testimonials";
+export { default as PricingCards } from "./pricing-cards";
+export { default as FAQ } from "./faq";
+export { default as CTA } from "./cta";

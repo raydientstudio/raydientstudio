@@ -1,0 +1,28 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      stroke="currentColor"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M18 15h4v6h-4z"
+    ></path>
+    <path
+      stroke="currentColor"
+      strokeLinecap="square"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M9 20h5"
+    ></path>
+    <path
+      stroke="currentColor"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M12 20v-4"
+    ></path>
+    <path
+      stroke="currentColor"
+      strokeLinecap="square"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M20 11V3H2v13h12"
+    ></path>
+</svg>
