@@ -42,7 +42,7 @@ export default function Search() {
 
 	return (
 		<>
-			<Button aria-label="search" asIcon onClick={() => setOpen(true)} disabled={isMenuOpen} variant="outlined" size="icon" radius={"full"}>
+			<Button aria-label="search" asIcon onClick={() => setOpen(true)} disabled={isMenuOpen} variant="outline" size="icon" radius={"full"}>
 				<SearchIcon />
 			</Button>
 			<SearchDialog open={open} onOpenChange={setOpen} className="font-sans">

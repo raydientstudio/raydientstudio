@@ -29,7 +29,7 @@ const InternalServerError = ({ error, reset }: ErrorProps) => {
                         </div>
 
                         <div className="flex flex-row overflow-visible justify-start items-start gap-x-4 md:gap-x-6">
-                            <Button onClick={() => reset()} variant="filled" size="medium" radius="small">
+                            <Button onClick={() => reset()} variant="default" size="medium" radius="small">
                                 <IconRefresh />
                                 Try Again
                             </Button>

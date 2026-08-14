@@ -55,7 +55,7 @@ export function MobileMenu() {
     return (
         <>
             {/* Hamburger Button */}
-            <Button asIcon onClick={toggleMenu} aria-label="menu" variant="outlined" size="icon" className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
+            <Button asIcon onClick={toggleMenu} aria-label="menu" variant="outline" size="icon" className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
                 <motion.span animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
                 <motion.span animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? -4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
 

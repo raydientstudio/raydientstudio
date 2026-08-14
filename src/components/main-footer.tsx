@@ -137,7 +137,7 @@ const MainFooter = () => {
                     <div className="flex-row border border-border border-solid px-4 py-4 rounded-md space-y-4 w-full">
                         <form className="flex flex-row space-x-4 w-full">
                             <Input type="email" startIcon={IconMail} placeholder="you@domain.com" />
-                            <Button type="submit" variant="filled" radius={"small"}>
+                            <Button type="submit" variant="default" radius={"small"}>
                                 <IconCornerDownRight />
                                 Subscribe
                             </Button>
@@ -150,7 +150,7 @@ const MainFooter = () => {
                             <div className="flex flex-wrap justify-center md:justify-start gap-2.5">
                                 {socialLinks.map(({ href, icon, label }) => (
                                     <Link key={href} href={href} target="_blank" rel="noopener noreferrer">
-                                        <Button aria-label={label} asIcon variant="outlined" size="social">
+                                        <Button aria-label={label} asIcon variant="outline" size="social">
                                             {icon}
                                         </Button>
                                     </Link>

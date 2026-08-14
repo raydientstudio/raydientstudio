@@ -33,7 +33,7 @@ export default function CTA() {
 
     // --- Render ---
     return (
-        <section className="w-full h-fit px-10 py-16 border-t border-border">
+        <section className="w-full h-fit px-6 md:px-10 py-16 border-t border-border">
             
             {/* Container */}
             <div className="relative flex flex-col justify-center items-center w-full h-fit max-w-8xl gap-y-6 mx-auto">

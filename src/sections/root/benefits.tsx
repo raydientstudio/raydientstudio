@@ -108,7 +108,7 @@ function GridCell({ label, number, large, stat, statUnit, heading, description, 
 
 export default function Benefits() {
     return (
-        <section className="w-full h-fit px-10 py-16 border-b border-border">
+        <section className="w-full h-fit px-6 md:px-10 py-16 border-b border-border">
             <div className="flex flex-col justify-center items-start text-left gap-y-12 left-0 right-0 max-w-8xl mx-auto">
                 <SectionHeader info={info} />
                 <div className="relative isolate grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 w-full h-fit bg-surface border border-border">

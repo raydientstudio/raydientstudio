@@ -106,7 +106,7 @@ const Footer = () => {
 
     return (
         <footer className="font-sans bg-surface bottom-0 left-0 right-0 w-full py-5 rounded-t-lg border-t border-border border-solid">
-            <div className="flex flex-col w-full h-full px-10 gap-y-0 max-w-8xl mx-auto">
+            <div className="flex flex-col w-full h-full px-6 md:px-10 gap-y-0 max-w-8xl mx-auto">
                 {/* Banner Section */}
                 <div className="flex flex-col items-center justify-center text-center bg-foreground text-primary-foreground p-8 gap-y-1.5 rounded-t-md">
                     <IconLettertype width={197.63} height={18} />
@@ -137,7 +137,7 @@ const Footer = () => {
                 <div className="flex-row border border-border border-solid px-4 py-4 rounded-none space-y-4 w-full">
                     <form className="flex flex-row space-x-4 w-full">
                         <Input type="email" startIcon={IconMail} placeholder="you@domain.com" />
-                        <Button type="submit" variant="filled" size="medium">
+                        <Button type="submit" variant="default" size="medium">
                             <IconArrowDownRight />
                             Subscribe
                         </Button>
@@ -150,7 +150,7 @@ const Footer = () => {
                         <div className="flex flex-wrap justify-center md:justify-start gap-2.5">
                             {socialLinks.map(({ href, icon, label }) => (
                                 <Link key={href} href={href} target="_blank" rel="noopener noreferrer">
-                                    <Button aria-label={label} asIcon variant="outlined" size="social">
+                                    <Button aria-label={label} asIcon variant="outline" size="social">
                                         {icon}
                                     </Button>
                                 </Link>

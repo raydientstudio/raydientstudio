@@ -28,7 +28,7 @@ export default function Profile() {
                             Hi, I&apos;m Sheikh Abdul Aziz — An Entrepreneur, Frontend Developer & Web Designer — helping businesses grow with elegant design and powerful development.
                         </CardDescription>
                         <div className="flex flex-row justify-start items-center gap-x-3">
-                            <Button onClick={() => navigateTo("/shop")} variant="outlined" size="medium" radius="medium">
+                            <Button onClick={() => navigateTo("/shop")} variant="outline" size="medium" radius="medium">
                                 <User /> Follow
                             </Button>
                             <Button onClick={() => navigateTo("/about")} variant="tonal" size="medium" radius="medium">

@@ -53,7 +53,7 @@ const faqItems = [
 
 export default function FAQ() {
     return (
-        <section className="w-full h-fit px-10 py-16">
+        <section className="w-full h-fit px-6 md:px-10 py-16">
             <div className="flex flex-col w-full h-full gap-y-6 max-w-8xl mx-auto">
                 <SectionHeader info={info} />
                 <Accordion type="single" collapsible className="">

@@ -111,7 +111,7 @@ function ReviewCard({ quote, initials, name, title, image }: Review) {
 
 export default function Testimonial() {
     return (
-        <section className="w-full h-fit px-10 py-16 border-b border-border">
+        <section className="w-full h-fit px-6 md:px-10 py-16 border-b border-border">
             <div className="flex flex-col justify-start items-start w-full h-fit gap-y-6 max-w-8xl mx-auto">
                 <SectionHeader info={info} />
                 <div className="relative isolate flex flex-col justify-start items-start w-full h-fit max-w-8xl border border-border">

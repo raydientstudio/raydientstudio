@@ -116,7 +116,7 @@ const PageNotFound = () => {
                     <div className="flex flex-row overflow-visible justify-center items-center gap-x-4 md:gap-x-6">
                         <Button
                             onClick={() => navigateTo("/")}
-                            variant="filled"
+                            variant="default"
                             size="medium"
                         >
                             <IconRefresh className="hidden" />

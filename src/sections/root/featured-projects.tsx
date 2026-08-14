@@ -90,7 +90,7 @@ export default function FeaturedProjects() {
     ];
 
     return (
-        <section className="w-full h-fit px-10 py-16 border-b border-border">
+        <section className="w-full h-fit px-6 md:px-10 py-16 border-b border-border">
             <div className="flex flex-col justify-center items-start text-left gap-y-12 left-0 right-0 max-w-8xl mx-auto">
                 <SectionHeader info={info} />
                 <AnimatedTabs tabs={tabs} defaultValue="web">

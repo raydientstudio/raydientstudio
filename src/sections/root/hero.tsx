@@ -59,10 +59,10 @@ export default function Hero() {
                 </div>
                 {/* Call-to-Action Buttons */}
                 <div className="flex flex-row justify-center items-center gap-4">
-                    <Button variant="primary" size='large' onClick={() => navigateTo(BOOKINGS)}>
+                    <Button variant="default" size='large' onClick={() => navigateTo(BOOKINGS)}>
                         {items.primary}
                     </Button>
-                    <Button variant="outlined" size='large' onClick={() => navigateTo(PROJECTS)}>
+                    <Button variant="outline" size='large' onClick={() => navigateTo(PROJECTS)}>
                         {items.secondary}
                     </Button>
                 </div>
