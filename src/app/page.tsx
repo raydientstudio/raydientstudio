@@ -10,13 +10,15 @@ import {
     FAQ,
     CTA,
     PerformanceMetrics,
-    EngineeringPipeline
+    EngineeringPipeline,
+    TrustedBrands
 } from "@/sections/root";
 
 export default function Page() {
     return (
         <Main> {/* Main */}
             <Hero /> {/* Hero */}
+            <TrustedBrands /> {/* Trusted Brands */}
             <Services /> {/* Services */}
             <FeaturedProjects /> {/* Featured Projects */}
             <Benefits /> {/* Value Proposition */}

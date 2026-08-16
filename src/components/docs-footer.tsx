@@ -52,10 +52,10 @@ const DocsFooter = ({ raw, previous, next }: { raw: string, previous: string, ne
                 </ButtonGroup>
 
                 <div className="flex md:hidden flex-row ml-auto space-x-2">
-                    <Button aria-label="arrow-left" onClick={() => navigateTo(previous)} asIcon variant="tonal" size="route" radius="medium">
+                    <Button aria-label="arrow-left" onClick={() => navigateTo(previous)} asIcon variant="tonal" size="medium" radius="medium">
                         <IconArrowLeft />
                     </Button>
-                    <Button aria-label="arrow-right" onClick={() => navigateTo(next)} asIcon variant="tonal" size="route" radius="medium">
+                    <Button aria-label="arrow-right" onClick={() => navigateTo(next)} asIcon variant="tonal" size="medium" radius="medium">
                         <IconArrowRight />
                     </Button>
                 </div>

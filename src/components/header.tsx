@@ -12,6 +12,8 @@ import { IconRiveleStudio } from "../icons";
 import { cn } from "@/lib/utils";
 import Button from "./ui/button";
 import { ThemeToggle } from "./theme-toggle";
+import Search from "@/sections/root/search";
+import Notifications from "@/sections/root/notifications";
 
 const VDivider = ({ className = "" }: { className?: string }) => (
     <Separator
@@ -228,13 +230,13 @@ const Header = () => {
                     {/* DESKTOP NAVIGATION                                         */}
                     {/* ========================================================== */}
 
-                    <nav className="hidden h-16 items-center gap-x-7 lg:flex font-normal">
+                    <nav className="hidden h-16 items-center gap-x-6 lg:flex font-normal">
                         {/* ====================================================== */}
                         {/* PRODUCTS                                               */}
                         {/* ====================================================== */}
 
                         <div className="relative flex h-16 items-center" onMouseEnter={() => setDesktopMenu("products")}>
-                            <button type="button" className="flex items-center gap-1 text-sm text-foreground transition-opacity hover:opacity-60">
+                            <button type="button" className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
                                 Products
                                 <Chevron open={desktopMenu === "products"} />
                             </button>
@@ -258,7 +260,7 @@ const Header = () => {
                                                         <div className="flex flex-col">
                                                             {column.items.map(
                                                                 (item) => (
-                                                                    <Link key={item.name} href={item.href} onClick={() => setDesktopMenu(null)} className="flex w-fit items-center py-0.5 text-2xl leading-relaxed tracking-tight text-foreground transition-opacity hover:opacity-60">
+                                                                    <Link key={item.name} href={item.href} onClick={() => setDesktopMenu(null)} className="flex w-fit items-center py-0.5 text-2xl leading-relaxed tracking-tight text-muted-foreground hover:text-foreground transition-colors">
                                                                         {item.name}
                                                                         {item.external && (<span className="ml-1 text-lg">↗</span>)}
                                                                     </Link>
@@ -280,7 +282,7 @@ const Header = () => {
                         {/* ====================================================== */}
 
                         <div className="relative flex h-16 items-center" onMouseEnter={() => setDesktopMenu("resources")}>
-                            <button type="button" className="flex items-center gap-1 text-sm text-foreground transition-opacity hover:opacity-60">
+                            <button type="button" className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
                                 Resources
                                 <Chevron open={desktopMenu === "resources" } />
                             </button>
@@ -297,7 +299,7 @@ const Header = () => {
                                                 {resources.map(
                                                     (item) => (
                                                         <Link key={item.name} href={item.href} onClick={() => setDesktopMenu(null)}>
-                                                            <span className="text-lg text-foreground transition-opacity hover:opacity-60">
+                                                            <span className="text-lg text-muted-foreground hover:text-foreground transition-colors">
                                                                 {item.name}
                                                             </span>
                                                         </Link>
@@ -314,7 +316,7 @@ const Header = () => {
                         {/* ENTERPRISE                                             */}
                         {/* ====================================================== */}
 
-                        <Link href="/enterprise" className="text-sm text-foreground transition-opacity hover:opacity-60" onMouseEnter={() => setDesktopMenu(null)}>
+                        <Link href="/enterprise" className="text-sm text-muted-foreground hover:text-foreground transition-colors" onMouseEnter={() => setDesktopMenu(null)}>
                             Enterprise
                         </Link>
 
@@ -322,7 +324,7 @@ const Header = () => {
                         {/* PRICING                                                */}
                         {/* ====================================================== */}
 
-                        <Link href="/pricing" className="text-sm text-foreground transition-opacity hover:opacity-60" onMouseEnter={() => setDesktopMenu(null)}>
+                        <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors" onMouseEnter={() => setDesktopMenu(null)}>
                             Pricing
                         </Link>
                     </nav>
@@ -361,8 +363,10 @@ const Header = () => {
                     {/* MOBILE MENU BUTTON                                         */}
                     {/* ========================================================== */}
 
-                    <div className="flex lg:hidden">
-                        <Button onClick={toggleMenu} asIcon aria-label="menu" aria-expanded={isMenuOpen} variant="outline" size="medium" className={`menu-btn ${isMenuOpen ? "isOpen" : ""}`}>
+                    <div className="flex flex-row items-center gap-x-2 lg:hidden text-muted-foreground">
+                        <Search />
+                        <Notifications />
+                        <Button variant="outline" size="medium" onClick={toggleMenu} aria-label="menu" asIcon aria-expanded={isMenuOpen} className={`menu-btn ${isMenuOpen ? "isOpen" : ""}`}>
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                                 <line className="line line-top" x1="4" y1="12" x2="20" y2="12" />
                                 <line className="line line-bottom" x1="4" y1="12" x2="20" y2="12" />

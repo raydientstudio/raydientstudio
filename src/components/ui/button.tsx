@@ -152,4 +152,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button as default };
+export { Button as default, buttonVariants };

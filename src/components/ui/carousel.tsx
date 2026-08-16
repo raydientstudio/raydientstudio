@@ -65,17 +65,9 @@ const Carousel = React.forwardRef<
 			},
 			plugins
 		)
+
 		const [canScrollPrev, setCanScrollPrev] = React.useState(false)
 		const [canScrollNext, setCanScrollNext] = React.useState(false)
-
-		const onSelect = React.useCallback((api: CarouselApi) => {
-			if (!api) {
-				return
-			}
-
-			setCanScrollPrev(api.canScrollPrev())
-			setCanScrollNext(api.canScrollNext())
-		}, [])
 
 		const scrollPrev = React.useCallback(() => {
 			api?.scrollPrev()
@@ -99,35 +91,38 @@ const Carousel = React.forwardRef<
 		)
 
 		React.useEffect(() => {
-			if (!api || !setApi) {
-				return
-			}
-
+			if (!api || !setApi) return
 			setApi(api)
 		}, [api, setApi])
 
 		React.useEffect(() => {
-			if (!api) {
-				return
+			if (!api) return
+
+			const update = () => {
+				setCanScrollPrev(api.canScrollPrev())
+				setCanScrollNext(api.canScrollNext())
 			}
 
-			onSelect(api)
-			api.on("reInit", onSelect)
-			api.on("select", onSelect)
+			// Avoid synchronous setState inside the effect
+			const frame = requestAnimationFrame(update)
+
+			api.on("select", update)
+			api.on("reInit", update)
 
 			return () => {
-				api?.off("select", onSelect)
+				cancelAnimationFrame(frame)
+				api.off("select", update)
+				api.off("reInit", update)
 			}
-		}, [api, onSelect])
+		}, [api])
 
 		return (
 			<CarouselContext.Provider
 				value={{
 					carouselRef,
-					api: api,
+					api,
 					opts,
-					orientation:
-						orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
+					orientation,
 					scrollPrev,
 					scrollNext,
 					canScrollPrev,
@@ -197,19 +192,19 @@ CarouselItem.displayName = "CarouselItem"
 const CarouselPrevious = React.forwardRef<
 	HTMLButtonElement,
 	React.ComponentProps<typeof Button>
->(({ className, variant = "outlined", ...props }, ref) => {
+>(({ className, variant = "outline", ...props }, ref) => {
 	const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
 	return (
-        <Button
-            aria-label="previous slide"
+		<Button
+			aria-label="previous slide"
 			ref={ref}
 			variant={variant}
 			className={cn(
-				"absolute  h-8 w-8 rounded-full",
+				"absolute h-8 w-8 rounded-full",
 				orientation === "horizontal"
 					? "-left-12 top-1/2 -translate-y-1/2"
-				: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+					: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
 				className
 			)}
 			disabled={!canScrollPrev}
@@ -225,12 +220,12 @@ CarouselPrevious.displayName = "CarouselPrevious"
 const CarouselNext = React.forwardRef<
 	HTMLButtonElement,
 	React.ComponentProps<typeof Button>
->(({ className, variant = "outlined", ...props }, ref) => {
+>(({ className, variant = "outline", ...props }, ref) => {
 	const { orientation, scrollNext, canScrollNext } = useCarousel()
 
 	return (
-        <Button
-            aria-label="next slide"
+		<Button
+			aria-label="next slide"
 			ref={ref}
 			variant={variant}
 			className={cn(

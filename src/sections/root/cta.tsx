@@ -57,7 +57,7 @@ export default function CTA() {
 
                 {/* Action Buttons */}
                 <div className="justify-center items-center">
-                    <Button onClick={() => navigateTo(SHOP)}>
+                    <Button variant="default" size="large" onClick={() => navigateTo(SHOP)}>
                         {items.button}
                     </Button>
                 </div>

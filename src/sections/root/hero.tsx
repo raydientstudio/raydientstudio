@@ -4,6 +4,7 @@ import { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/button";
 import { ScrambleCycleText } from "@/components/ui/scramble";
+import { Marquee } from "@/components/ui/marquee";
 
 const items = {
     status: "Now booking Q4 engagements",
@@ -16,8 +17,6 @@ const items = {
     description: ["Brands that leave an impression", "For AI & Startups", "For Founders & Owners"],
     primary: "Get Started",
     secondary: "Learn More",
-    primaryb: "↳ Get Started",
-    secondaryb: "Learn More →",
     metaline: "No Long-Term Contracts — Response within 24h"
 };
 
@@ -34,7 +33,7 @@ export default function Hero() {
 
     // --- Render ---
     return (
-        <section className="relative w-full h-fit px-8 py-20 border-b border-border">
+        <section className="relative w-full h-fit px-8 md:px-10 py-20 border-b border-border">
             {/* Grid element */}
             <span className="absolute inset-0 mt-16 left-1/2 -translate-x-1/2 pointer-events-none" />
             {/* Container */}
@@ -59,31 +58,88 @@ export default function Hero() {
                 </div>
                 {/* Call-to-Action Buttons */}
                 <div className="flex flex-row justify-center items-center gap-4">
-                    <Button variant="default" size='large' onClick={() => navigateTo(BOOKINGS)}>
+                    <Button size="large" onClick={() => navigateTo(BOOKINGS)}>
                         {items.primary}
                     </Button>
-                    <Button variant="outline" size='large' onClick={() => navigateTo(PROJECTS)}>
+                    <Button variant="outline" size="large" onClick={() => navigateTo(PROJECTS)}>
                         {items.secondary}
                     </Button>
                 </div>
                 {/* Meta line */}
-                <p className="text-[13px] text-muted font-mono font-normal uppercase leading-none tracking-wide">
+                <p className="text-[13px] text-muted text-center font-mono font-normal uppercase leading-relaxed tracking-wide">
                     {items.metaline}
                 </p>
             </div>
-            <div className="relative hidden flex-col justify-center items-center w-full h-fit mt-24 gap-y-6 max-w-7xl mx-auto">
+            <div className="hidden relative flex-col justify-center items-center w-full h-fit mt-24 gap-y-8 max-w-8xl mx-auto">
                 <span className="font-mono text-xs uppercase tracking-wide text-muted">
                     Trusted by World-class teams
                 </span>
-                <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4">
-                    <span className="text-xl font-semibold font-mono tracking-tight text-muted-foreground">Flowstate</span>
-                    <span className="text-xl font-semibold font-mono tracking-tight text-muted-foreground">Orbital</span>
-                    <span className="text-xl font-semibold font-mono tracking-tight text-muted-foreground">Ledger</span>
-                    <span className="text-xl font-semibold font-mono tracking-tight text-muted-foreground">Atlas</span>
-                    <span className="text-xl font-semibold font-mono tracking-tight text-muted-foreground">Pulse</span>
-                    <span className="text-xl font-semibold font-mono tracking-tight text-muted-foreground">Nova</span>
-                </div>
+
+                {/* Marquee */}
+                <Marquee orientation="horizontal" duration={24} isPauseOnHover multiply={4} speed={"default"} repeat={0}>
+                    {mqItems.map((item) => (
+                        <div key={item.name} className="inline-flex items-center gap-3 pr-12 text-muted-foreground">
+                            {item.logo}
+                            <span className="font-mono text-lg font-semibold tracking-tight">
+                                {item.name}
+                            </span>
+                        </div>
+                    ))}
+                </Marquee>
             </div>
         </section>
     );
 }
+
+const mqItems = [
+  {
+    name: "Flowstate",
+    logo: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Orbital",
+    logo: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <circle cx="12" cy="12" r="7" />
+        <path d="M3 12h18" />
+      </svg>
+    ),
+  },
+  {
+    name: "Ledger",
+    logo: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="5" y="5" width="14" height="14" rx="2" />
+      </svg>
+    ),
+  },
+  {
+    name: "Atlas",
+    logo: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 2v20M2 12h20" />
+      </svg>
+    ),
+  },
+  {
+    name: "Pulse",
+    logo: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 12h4l2-4 4 8 2-4h6" />
+      </svg>
+    ),
+  },
+  {
+    name: "Nova",
+    logo: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M12 3v18M3 12h18" />
+        <path d="M5 5l14 14M19 5L5 19" />
+      </svg>
+    ),
+  },
+];

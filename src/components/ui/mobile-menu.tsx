@@ -120,7 +120,7 @@ const MobileMenuProvider = React.forwardRef<HTMLDivElement, React.ComponentProps
                             } as React.CSSProperties
                         }
                         className={cn(
-                            "group/mobile-menu-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-mobile-menu",
+                            "group/mobile-menu-wrapper flex min-h-svh w-full has-data[-variant=inset]:bg-mobile-menu",
                             className
                         )}
                         ref={ref}

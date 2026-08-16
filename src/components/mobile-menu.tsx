@@ -55,7 +55,7 @@ export function MobileMenu() {
     return (
         <>
             {/* Hamburger Button */}
-            <Button asIcon onClick={toggleMenu} aria-label="menu" variant="outline" size="icon" className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
+            <Button asIcon onClick={toggleMenu} aria-label="menu" variant="outline" size="medium" className="flex flex-col items-center justify-center p-2 gap-1.5 transition-opacity disabled:opacity-50 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary">
                 <motion.span animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
                 <motion.span animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? -4 : 0 }} transition={{ duration: 0.150, ease: "linear" }} className="block w-full h-0.5 bg-muted-foreground rounded-none" />
 
@@ -66,10 +66,10 @@ export function MobileMenu() {
                 {isMenuOpen && (
                     <motion.div key="mobile-drawer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.150, ease: "easeInOut" }} className="z-20 flex flex-col fixed left-0 right-0 top-16 bottom-0 h-dvh w-screen bg-background text-foreground px-6 py-4 gap-y-3">
                         <div className="flex flex-col items-center justify-between gap-y-4">
-                            <Button onClick={() => navigateTo(SIGNUP)} variant={"filled"} size={"wide"}>
+                            <Button onClick={() => navigateTo(SIGNUP)} variant="default" size="medium" asWide>
                                 Signup
                             </Button>
-                            <Button onClick={() => navigateTo(LOGIN)} variant={"outlined"} size={"wide"}>
+                            <Button onClick={() => navigateTo(LOGIN)} variant="outline" size="medium" asWide>
                                 Login
                             </Button>
                         </div>

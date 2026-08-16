@@ -22,7 +22,7 @@ export default function Notifications() {
     return (
         <Drawer> {/* Drawer for Notifications */}
             <DrawerTrigger asChild>
-                <Button asIcon disabled={ isMenuOpen } aria-label={"notifications"} variant={"outlined"} size={"icon"} radius={"full"}>
+                <Button asIcon disabled={ isMenuOpen } aria-label={"notifications"} variant="outline" size="medium" radius={"full"}>
                     <BellDotIcon />
                 </Button>
             </DrawerTrigger>

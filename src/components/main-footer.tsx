@@ -150,7 +150,7 @@ const MainFooter = () => {
                             <div className="flex flex-wrap justify-center md:justify-start gap-2.5">
                                 {socialLinks.map(({ href, icon, label }) => (
                                     <Link key={href} href={href} target="_blank" rel="noopener noreferrer">
-                                        <Button aria-label={label} asIcon variant="outline" size="social">
+                                        <Button aria-label={label} asIcon variant="outline" size="medium">
                                             {icon}
                                         </Button>
                                     </Link>

@@ -36,14 +36,14 @@ export const PortfolioCard = ({
     return (
         <Card className="group overflow-hidden bg-card border-border transition-all duration-300 px-4 py-4 hover:-translate-y-1">
             {thumbnailUrl && (
-                <div className="relative aspect-[16/9] overflow-hidden bg-muted rounded-md border border-border">
+                <div className="relative aspect-video overflow-hidden bg-muted rounded-md border border-border">
                     <Image src={`${thumbnailUrl}`} alt={`${title}`} fill className="hidden object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg border border-border" />
                 </div>
             )}
             <CardContent className="gap-y-4 p-0 mt-4">
                 <div className="flex flex-row items-start gap-6 w-full">
                     {brandUrl && (
-                        <div className="flex-shrink-0 w-6 h-6 md:w-12 md:h-12 relative">
+                        <div className="shrink-0 w-6 h-6 md:w-12 md:h-12 relative">
                             <Avatar className="object-contain rounded-sm border border-border">
                                 <AvatarImage src={brandUrl} alt={title} />
                                 <AvatarFallback className="rounded-sm">DP</AvatarFallback>
@@ -69,7 +69,7 @@ export const PortfolioCard = ({
                 <div className="">
                     <CardTitle className="text-lg font-semibold capitalize">{title}</CardTitle>
                     <CardDescription>{description}</CardDescription>
-                    <Button className="hidden" variant={"outlined"} size={"wide"} radius={"small"} onClick={() => window.open(caseStudyUrl, "_blank")}>
+                    <Button className="hidden" variant="outline" size="medium" asWide radius={"small"} onClick={() => window.open(caseStudyUrl, "_blank")}>
                       View Details
                     </Button>
                 </div>
