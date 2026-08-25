@@ -1,4 +1,9 @@
-import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import {
+    forwardRef,
+    type ButtonHTMLAttributes,
+    type ElementType,
+    type ReactNode,
+} from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { Loader2 } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -10,7 +15,7 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default: "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/90",
-                outline: "border border-border bg-surface text-foreground hover:bg-secondary active:bg-secondary",
+                outline: "border border-border bg-surface text-foreground hover:bg-secondary active:bg-secondary [&_svg]:text-muted-foreground",
                 tonal: "bg-accent text-accent-foreground hover:bg-accent/80 active:bg-accent/80",
                 text: "bg-transparent text-secondary-foreground hover:bg-secondary active:bg-secondary",
                 elevated: "bg-surface text-secondary-foreground shadow-xs hover:bg-secondary active:bg-secondary",
@@ -18,15 +23,18 @@ const buttonVariants = cva(
                 error: "bg-destructive text-primary-foreground hover:bg-destructive/80 active:bg-destructive/80",
                 alert: "bg-transparent text-destructive hover:bg-destructive/10 active:bg-destructive/10",
             },
+
             size: {
                 small: "",
                 medium: "",
                 large: "",
             },
+
             asIcon: {
                 true: "p-0",
                 false: "",
             },
+
             radius: {
                 none: "rounded-none",
                 small: "rounded-sm",
@@ -36,6 +44,7 @@ const buttonVariants = cva(
                 full: "rounded-full",
             },
         },
+
         compoundVariants: [
             {
                 size: "large",
@@ -47,6 +56,7 @@ const buttonVariants = cva(
                 asIcon: false,
                 class: "h-10 px-4.5 text-button-16 gap-x-3 [&_svg]:size-4",
             },
+
             {
                 size: "medium",
                 asIcon: true,
@@ -57,6 +67,7 @@ const buttonVariants = cva(
                 asIcon: false,
                 class: "h-9 px-4.5 text-button-14 gap-x-2 [&_svg]:size-3.5",
             },
+
             {
                 size: "small",
                 asIcon: true,
@@ -68,6 +79,7 @@ const buttonVariants = cva(
                 class: "h-8 px-3 text-button-14 gap-x-1.5 [&_svg]:size-3",
             },
         ],
+
         defaultVariants: {
             variant: "default",
             size: "medium",
@@ -79,14 +91,32 @@ const buttonVariants = cva(
 
 type ButtonVariants = VariantProps<typeof buttonVariants>;
 
-interface ButtonBaseProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">, Pick<ButtonVariants, "variant" | "size" | "radius"> {
-    asChild?: boolean;
+type CoreProps = Pick<ButtonVariants, "variant" | "size" | "radius"> & {
+    className?: string;
     loading?: boolean;
     loadingText?: ReactNode;
     asWide?: boolean;
+    disabled?: boolean;
+};
+
+/* -------------------------------------------------------------------------- */
+/* Regular Button                                                             */
+/* -------------------------------------------------------------------------- */
+
+interface RegularButtonProps extends CoreProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "disabled" | "className"> {
+    asChild?: false;
+    asIcon?: false;
+    children?: ReactNode;
+    startIcon?: ReactNode;
+    endIcon?: ReactNode;
 }
 
-interface IconButtonProps extends ButtonBaseProps {
+/* -------------------------------------------------------------------------- */
+/* Icon Button                                                                */
+/* -------------------------------------------------------------------------- */
+
+interface IconButtonProps extends CoreProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "disabled" | "className"> {
+    asChild?: false;
     asIcon: true;
     children: ReactNode;
     startIcon?: never;
@@ -94,16 +124,38 @@ interface IconButtonProps extends ButtonBaseProps {
     "aria-label": string;
 }
 
-interface TextButtonProps extends ButtonBaseProps {
+/* -------------------------------------------------------------------------- */
+/* Slot Button                                                                */
+/* -------------------------------------------------------------------------- */
+
+interface ChildButtonProps extends CoreProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "disabled" | "className"> {
+    asChild: true;
     asIcon?: false;
-    children?: ReactNode;
-    startIcon?: ReactNode;
-    endIcon?: ReactNode;
+    children: ReactNode;
+    startIcon?: never;
+    endIcon?: never;
 }
 
-export type ButtonProps = IconButtonProps | TextButtonProps;
+/* -------------------------------------------------------------------------- */
+/* Slot Icon Button                                                           */
+/* -------------------------------------------------------------------------- */
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+interface ChildIconButtonProps extends CoreProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "disabled" | "className"> {
+    asChild: true;
+    asIcon: true;
+    children: ReactNode;
+    startIcon?: never;
+    endIcon?: never;
+    "aria-label": string;
+}
+
+export type ButtonProps = RegularButtonProps | IconButtonProps | ChildButtonProps | ChildIconButtonProps;
+
+/* -------------------------------------------------------------------------- */
+/* Button                                                                     */
+/* -------------------------------------------------------------------------- */
+
+const Button = forwardRef<HTMLElement, ButtonProps>(
     (
         {
             className,
@@ -123,18 +175,52 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         },
         ref,
     ) => {
-        const Comp = asChild ? Slot : "button";
+        const Comp = (asChild ? Slot : "button") as ElementType;
+
         const isDisabled = disabled || loading;
 
         return (
-            <Comp ref={ref} className={cn(buttonVariants({ variant, size, radius, asIcon }), asWide && "w-full", loading && "cursor-wait", className,)} disabled={!asChild ? isDisabled : undefined} aria-disabled={isDisabled || undefined} aria-busy={loading || undefined} {...props}>
-                {asChild ? (children) : asIcon ? (
+            <Comp
+                ref={ref}
+                className={cn(
+                    buttonVariants({
+                        variant,
+                        size,
+                        radius,
+                        asIcon,
+                    }),
+                    asWide && "w-full",
+                    loading && "cursor-wait",
+                    className,
+                )}
+                disabled={!asChild ? isDisabled : undefined}
+                aria-disabled={isDisabled || undefined}
+                aria-busy={loading || undefined}
+                {...props}
+            >
+                {asChild ? (
+                    children
+                ) : asIcon ? (
                     loading ? (
-                        <Loader2 className="animate-spin" aria-hidden="true" />
-                    ) : (children)) : loading ? (
+                        <Loader2
+                            className="animate-spin"
+                            aria-hidden="true"
+                        />
+                    ) : (
+                        children
+                    )
+                ) : loading ? (
                     <>
-                        <Loader2 className="animate-spin" aria-hidden="true" />
-                        <span className={cn(!loadingText && "invisible")}>
+                        <Loader2
+                            className="animate-spin"
+                            aria-hidden="true"
+                        />
+
+                        <span
+                            className={cn(
+                                !loadingText && "invisible",
+                            )}
+                        >
                             {loadingText ?? children}
                         </span>
                     </>
@@ -152,4 +238,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button as default, buttonVariants };
+export {
+    Button as default,
+    buttonVariants,
+};

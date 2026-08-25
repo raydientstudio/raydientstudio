@@ -1,22 +1,30 @@
-import { forwardRef, InputHTMLAttributes } from "react";
-import { TablerIcon } from "@tabler/icons-react";
+import { forwardRef, InputHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-	startIcon?: TablerIcon;
-	endIcon?: TablerIcon;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+	leadingIcon?: ReactNode;
+	trailingIcon?: ReactNode;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-	({ className, type = "text", startIcon: StartIcon, endIcon: EndIcon, ...props }, ref) => {
-		const hasStartIcon = !!StartIcon;
-		const hasEndIcon = !!EndIcon;
+	(
+		{
+			className,
+			type = "text",
+			leadingIcon,
+			trailingIcon,
+			...props
+		},
+		ref
+	) => {
+		const hasLeadingIcon = !!leadingIcon;
+		const hasTrailingIcon = !!trailingIcon;
 
 		return (
 			<div className="relative w-full">
-				{hasStartIcon && StartIcon && (
-					<div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
-						<StartIcon size={18} />
+				{hasLeadingIcon && (
+					<div className="pointer-events-none absolute left-3 top-1/2 flex size-4.5 -translate-y-1/2 items-center justify-center text-muted-foreground [&>svg]:size-4.5">
+						{leadingIcon}
 					</div>
 				)}
 
@@ -24,17 +32,17 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 					type={type}
 					ref={ref}
 					className={cn(
-						"flex h-9 w-full rounded-full border border-input text-sm px-3 py-1 transition-colors duration-200 ease-in-out placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-						hasStartIcon && "pl-10",
-						hasEndIcon && "pr-10",
+						"flex w-full rounded-full border border-input px-3 h-10 text-sm transition-colors duration-200 ease-in-out placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+						hasLeadingIcon && "pl-10",
+						hasTrailingIcon && "pr-10",
 						className
 					)}
 					{...props}
 				/>
 
-				{hasEndIcon && EndIcon && (
-					<div className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
-						<EndIcon size={18} />
+				{hasTrailingIcon && (
+					<div className="pointer-events-none absolute right-3 top-1/2 flex size-4.5 -translate-y-1/2 items-center justify-center text-muted-foreground [&>svg]:size-4.5">
+						{trailingIcon}
 					</div>
 				)}
 			</div>
@@ -43,4 +51,5 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = "Input";
-export { Input };
+
+export { Input, type InputProps };

@@ -340,6 +340,10 @@ const Header = () => {
                     {/* ========================================================== */}
 
                     <div className="hidden flex-row items-center gap-x-3.5 lg:flex">
+                        <Search />
+                        <Notifications />
+                        <ThemeToggle />
+                        <VDivider />
                         <Button variant="outline" size="small" radius="medium" onClick={() => navigateTo("/login")} onMouseEnter={() => setDesktopMenu(null)}>
                             Login
                         </Button>
@@ -347,16 +351,12 @@ const Header = () => {
                             Signup
                         </Button>
                         <VDivider />
-                        <ThemeToggle />
-                        <VDivider />
-                        <div onMouseEnter={() => setDesktopMenu(null)}>
-                            <Avatar className="h-8 w-8 rounded-full border border-border">
-                                <AvatarImage src="https://github.com/itsazizdotme.png" alt="alt" />
-                                <AvatarFallback>
-                                    SA
-                                </AvatarFallback>
-                            </Avatar>
-                        </div>
+                        <Avatar className="h-8 w-8 rounded-full border border-border">
+                            <AvatarImage src="https://github.com/itsazizdotme.png" alt="alt" />
+                            <AvatarFallback>
+                                SA
+                            </AvatarFallback>
+                        </Avatar>
                     </div>
 
                     {/* ========================================================== */}
@@ -383,10 +383,10 @@ const Header = () => {
             <div className={cn("relative inset-x-0 bottom-0 top-0 z-20 flex h-fit w-full flex-col gap-y-6 border-b border-border px-6 py-6 font-sans text-foreground transition-all duration-150 ease-in-out lg:hidden", isMenuOpen ? "flex" : "hidden")}>
                 {/* CTA Content */}
                 <div className="flex shrink-0 flex-col items-center justify-between gap-y-4">
-                    <Button onClick={() => navigateTo("/signup")} variant="default" size="medium" asWide radius="medium">
+                    <Button onClick={() => navigateTo("/signup")} variant="default" size="large" asWide radius="medium">
                         Signup
                     </Button>
-                    <Button onClick={() => navigateTo("/login")} variant="outline" size="medium" asWide radius="medium">
+                    <Button onClick={() => navigateTo("/login")} variant="outline" size="large" asWide radius="medium">
                         Login
                     </Button>
                 </div>

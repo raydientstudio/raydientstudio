@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IconProps } from "./icon-props";
 
-const IconArrowRight: FC<IconProps> = ({
+const IconMail: FC<IconProps> = ({
     size = 24,
     viewBox = "0 0 24 24",
     className = "",
@@ -18,10 +18,10 @@ const IconArrowRight: FC<IconProps> = ({
             {...props}
             className={className}
         >
-            <path fill="currentColor" d="M3 11H2v2h1v-2m0 1v1h18v-2H3z"></path>
-            <path stroke="currentColor" strokeLinecap="square" strokeLinejoin="round" strokeWidth="2" d="m14 5 7 7-7 7"></path>
+            <path fill="currentColor" d="M3 5V4C2.44772 4 2 4.44772 2 5H3ZM21 5H22C22 4.44772 21.5523 4 21 4V5ZM21 19V20H22V19H21ZM3 19H2V20H3V19ZM3 5V6H21V5V4H3V5ZM21 5H20V19H21H22V5H21ZM21 19V18H3V19V20H21V19ZM3 19H4V5H3H2V19H3Z" />
+            <path stroke="currentColor" d="M21 6L12 12L3 6" strokeWidth="2" strokeLinejoin="round" />
         </svg>
     );
 };
 
-export { IconArrowRight as default };
+export { IconMail as default };

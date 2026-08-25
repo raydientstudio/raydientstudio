@@ -5,18 +5,18 @@ import { useMemo } from "react";
 import Button from "./ui/button";
 import { Input } from "./ui/input";
 import {
-    IconBrandBehance,
-    IconBrandDribbble,
-    IconBrandFacebook,
-    IconBrandInstagram,
-    IconBrandLinkedin,
-    IconBrandThreads,
-    IconBrandX,
-    IconCornerDownRight,
+    IconArrowDownRight,
+    IconBehance,
+    IconDribbble,
+    IconEmail,
+    IconFacebook,
+    IconGithub,
+    IconInstagram,
+    IconLettertype,
+    IconLinkedin,
     IconMail,
-} from "@tabler/icons-react";
-import { IconLettertype } from "../icons";
-import { IconArrowDownRight } from "@/icons/icons-arrow";
+    IconX,
+} from "../icons";
 
 const linkClass = "text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out";
 
@@ -88,13 +88,13 @@ const quickLinksData: FooterLinkItem[] = [
 ];
 
 const socialLinksData = [
-    { href: "https://www.instagram.com/rivelestudio", icon: <IconBrandInstagram />, label: "instagram" },
-    { href: "https://www.facebook.com/rivelestudio", icon: <IconBrandFacebook />, label: "facebook" },
-    { href: "https://www.threads.net/@rivelestudio", icon: <IconBrandThreads />, label: "threads" },
-    { href: "https://x.com/rivelestudio", icon: <IconBrandX />, label: "x" },
-    { href: "https://www.linkedin.com/company/rivelestudio", icon: <IconBrandLinkedin />, label: "linkedin" },
-    { href: "https://dribbble.com/rivelestudio", icon: <IconBrandDribbble />, label: "dribbble" },
-    { href: "https://www.behance.net/rivelestudio", icon: <IconBrandBehance />, label: "behance" },
+    { href: "https://www.instagram.com/rivelestudio", icon: <IconInstagram />, label: "instagram" },
+    { href: "https://www.facebook.com/rivelestudio", icon: <IconFacebook />, label: "facebook" },
+    { href: "https://x.com/rivelestudio", icon: <IconX />, label: "x" },
+    { href: "https://www.linkedin.com/company/rivelestudio", icon: <IconLinkedin />, label: "linkedin" },
+    { href: "https://www.github.com/rivelestudio", icon: <IconGithub />, label: "github" },
+    { href: "https://dribbble.com/rivelestudio", icon: <IconDribbble />, label: "dribbble" },
+    { href: "https://www.behance.net/rivelestudio", icon: <IconBehance />, label: "behance" },
     { href: "mailto:hello@rivele.studio", icon: <IconMail />, label: "email" },
 ];
 
@@ -136,7 +136,7 @@ const Footer = () => {
                 {/* Subscription */}
                 <div className="flex-row border border-border border-solid px-4 py-4 rounded-none space-y-4 w-full">
                     <form className="flex flex-row space-x-4 w-full">
-                        <Input type="email" startIcon={IconMail} placeholder="you@domain.com" />
+                        <Input type="email" leadingIcon={<IconEmail />} placeholder="you@domain.com" />
                         <Button type="submit" variant="default" size="medium">
                             <IconArrowDownRight />
                             Subscribe

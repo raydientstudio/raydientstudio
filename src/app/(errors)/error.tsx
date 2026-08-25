@@ -1,6 +1,5 @@
 "use client";
 
-import { Icon500 } from "@/icons";
 import { IconRefresh, IconSquareFilled } from "@tabler/icons-react";
 import Button from "@/components/ui/button";
 import { ErrorProps } from "../error";
@@ -34,9 +33,6 @@ const InternalServerError = ({ error, reset }: ErrorProps) => {
                                 Try Again
                             </Button>
                         </div>
-                    </div>
-                    <div className="flex flex-col justify-start items-start w-full h-fit gap-y-2 py-6">
-                        <Icon500 width={192} height={64} />
                     </div>
                 </div>
             </div>

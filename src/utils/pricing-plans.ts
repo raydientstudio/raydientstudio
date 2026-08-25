@@ -145,9 +145,9 @@ export const pricingByCategory = {
           "Single-page website design",
           "Responsive UI/UX for all devices",
           "Design system with reusable styles",  
-          "1 round of design revisions",
+          "One round of design revisions",
           "404 & 500 error page included",
-          "Delivered in editable design files",
+          "Delivered in editable source files",
         ],
         featuresIcons: [
             1,
@@ -184,9 +184,9 @@ export const pricingByCategory = {
           "Multi-page website (up to 8 pages)",
           "Custom component design system",
           "Production-ready frontend build",
-          "Basic on-page SEO setup",
           "2 rounds of revisions included",
           "Faster project turnaround",
+          "Basic on-page SEO setup",
           
         ],
         featuresIcons: [

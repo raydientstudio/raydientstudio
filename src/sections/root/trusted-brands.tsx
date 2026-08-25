@@ -7,7 +7,7 @@ import { Marquee } from "@/components/ui/marquee";
 export default function TrustedBrands() {
     const brands = useMemo(() => ["2", "3", "4", "5", "6"], []);
     return (
-        <section className="w-full h-fit px-0 py-6">
+        <section className="hidden w-full h-fit px-0 py-6">
             <div className="w-full h-fit px-6 py-0">
                 <div className="flex flex-col relative rounded-lg py-4 justify-center items-start text-left left-0 right-0 max-w-8xl mx-auto">
                     {/* Marquee component */}

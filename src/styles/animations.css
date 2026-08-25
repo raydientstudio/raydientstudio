@@ -34,8 +34,8 @@
 .line {
     transform-box: view-box;
     transform-origin: 12px 12px;
-    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
-    stroke: var(--color-foreground);
+    transition: transform 0.24s cubic-bezier(0.65, 0, 0.35, 1);
+    stroke: var(--color-muted-foreground);
     stroke-width: 2;
     stroke-linecap: square;
 }

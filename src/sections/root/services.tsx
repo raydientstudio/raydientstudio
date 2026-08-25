@@ -4,6 +4,8 @@ import Link from "next/link";
 import SectionHeader from "./section-header";
 import { cn } from "@/lib/utils";
 import CrosshairCorner from "./crosshair-corners";
+import { Grid, GridCell } from "@/components/ui/grid";
+import { IconArrowRight } from "@/icons";
 
 const info = {
     title: "/ 002 — Services",
@@ -15,8 +17,46 @@ const info = {
     ),
 };
 
-export default function Services() {
+interface CardProps {
+    id?: string;
+    title: string;
+    description: string;
+    tags: string[];
+    url: string;
+}
 
+function Card({
+    id,
+    title,
+    description,
+    tags,
+    url
+}: CardProps) {
+    return (
+        <div className={cn("flex flex-col justify-start items-start rounded-none not-last:border-b border-border w-full h-full p-6 md:p-8 gap-4")}>
+            <h4 className="text-label-14-mono text-muted">
+                {id}
+            </h4>
+            <h5 className="text-heading-18 md:text-heading-24 font-semibold font-mono text-foreground">
+                {title}
+            </h5>
+            <p className="text-copy-14 md:text-copy-18 text-muted-foreground">
+                {description}
+            </p>
+            <div className="flex flex-wrap gap-2 text-label-13-mono text-muted">
+                <span>{tags[0]}</span>
+                <span>·</span>
+                <span>{tags[1]}</span>
+            </div>
+            <Link href={url ?? "/"} className="text-button-14 font-mono font-[450] inline-flex items-center gap-x-2 [&_svg]:size-3.5">
+                Learn more
+                <IconArrowRight />
+            </Link>
+        </div>
+    )
+}
+
+export default function Services() {
     const services = [
         {
             id: "01",
@@ -61,42 +101,21 @@ export default function Services() {
             serviceUrl: "/",
         },
     ];
-
     return (
         <section className="w-full h-fit px-6 md:px-10 py-16 border-b border-border">
             <div className="flex flex-col justify-center items-start text-left gap-y-12 left-0 right-0 max-w-8xl mx-auto">
                 {/* Section header */}
                 <SectionHeader info={info} />
                 {/* Pillar grid */}
-                <div className="relative isolate grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 bg-surface border border-border">
-                    {/* True crosshair corners */}
+                <Grid columns={{ xs: 1, md: 2, lg: 3 }} rows={{ xs: 6, md: 3, lg: 2 }} >
                     <CrosshairCorner />
                     {/* Card */}
-                    {services.map((service, index) => (
-                        <div key={index} className={cn("flex flex-col justify-start items-start rounded-none not-last:border-b border-border w-full h-full p-6 gap-4")}>
-                            <h4 className="text-label-14-mono text-muted">
-                                {service.id}
-                            </h4>
-                            <h5 className="text-heading-18 md:text-heading-20 font-semibold font-mono text-foreground">
-                                {service.title}
-                            </h5>
-                            <p className="text-copy-14 md:text-copy-16 text-muted-foreground">
-                                {service.description}
-                            </p>
-                            <div className="flex flex-wrap gap-2 font-mono text-xs text-muted">
-                                <span>{service.tags[0]}</span>
-                                <span>·</span>
-                                <span>{service.tags[1]}</span>
-                            </div>
-                            <Link href={service.serviceUrl ?? "/"} className="text-button-16 font-mono font-[450] inline-flex items-center gap-x-2 [&_svg]:size-3.5">
-                                Learn more <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 11H2V13H3V12V11ZM3 12V13H21V12V11H3V12Z" fill="currentColor"/>
-                                <path d="M14 5L21 12L14 19" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round"/>
-                                </svg>
-                            </Link>
-                        </div>
+                    {services.map((service, idx) => (
+                        <GridCell key={idx}>
+                            <Card id={service.id} title={service.title} description={service.description} tags={service.tags} url={service.serviceUrl} />
+                        </GridCell>
                     ))}
-                </div>
+                </Grid>
             </div>
         </section>
     );

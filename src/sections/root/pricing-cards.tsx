@@ -27,7 +27,6 @@ import IconGauge from "@/icons/icon-gauge";
 import IconArrowCircleDown from "@/icons/icon-arrow-circle-down";
 import IconHeadset from "@/icons/icon-headset";
 import IconStopWatchFast from "@/icons/icon-stopwatch-fast";
-import IconLayers from "@/icons/icon-layers";
 import IconDesktopError from "@/icons/icon-desktop-error";
 import IconDeviceResponsive from "@/icons/icon-device-responsive";
 import IconShieldCheck from "@/icons/icon-shield-check";
@@ -36,6 +35,10 @@ import IconLayoutGrid from "@/icons/icon-layout-grid";
 import IconComponent from "@/icons/icon-component";
 import IconRefresh from "@/icons/icon-refresh";
 import IconZap from "@/icons/icon-zap";
+import IconFileZip from "@/icons/icon-file-zip";
+import IconCable from "@/icons/icon-cable";
+import IconTemplate from "@/icons/icon-template";
+import { Grid, GridCell } from "@/components/ui/grid";
 
 const info = {
     title: "/ 009 — Pricing Plans",
@@ -67,19 +70,19 @@ const iconMap = {
     3: <IconDesignPointer />,
     4: <IconRefresh />,
     5: <IconDesktopError />,
-    6: <IconLayers />,
+    6: <IconFileZip />,
     7: <IconLayoutGrid />,
     8: <IconComponent />,
     9: <IconZap />,
-    10: <IconGauge />,
-    11: <IconRefresh />,
-    12: <IconStopWatchFast />,
-    13: <svg className="shrink-0" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2.5" width="8" height="13" rx="1.5" /><path d="M7.5 5.5h3M7.5 8.5h3M7.5 11.5h1.5" /></svg>,
+    10: <IconRefresh />,
+    11: <IconStopWatchFast />,
+    12: <IconGauge />,
+    13: <IconTemplate />,
     14: <IconGlobe />,
     15: <IconShieldCheck />,
-    16: <IconClock />,
-    17: <IconHeadset />,
-    18: <svg className="shrink-0" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M9 2.5v3M9 12.5v3M3.5 9h11" /><circle cx="9" cy="9" r="2.2" /></svg>,
+    16: <IconHeadset />,
+    17: <IconClock />,
+    18: <IconCable />,
 };
 
 type PricingCardProps = {
@@ -188,7 +191,7 @@ const tabs = [
     { value: "3", label: "Product Design" },
 ] as const;
 
-const PricingPlans = () => {
+function PricingPlans() {
     const data = useMemo(() => pricingByCategory, []);
     return (
         <section className="w-full h-fit px-6 md:px-10 py-16 border-b border-border">
@@ -206,11 +209,13 @@ const PricingPlans = () => {
                     </div>
                     {tabs.map((tab, idx) => (
                         <TabsContent key={idx} value={tab.value}>
-                            <div className="overflow-hidden grid grid-cols-1 md:grid-cols-3 rounded-md not-first:rounded-t-none not-last:rounded-b-none border border-border w-full h-fit">
+                            <Grid columns={{xs: 1, md: 3}} rows={{xs: 3, md: 1}} className="overflow-hidden rounded-md not-first:rounded-t-none not-last:rounded-b-none border border-border w-full">
                                 {data[tab.value].map((plan: any) => (
-                                    <PricingCard key={plan.id} card={plan} />
+                                    <GridCell key={plan.id}>
+                                        <PricingCard card={plan} />
+                                    </GridCell>
                                 ))}
-                            </div>
+                            </Grid>
                         </TabsContent>
                     ))}
                 </AnimatedTabs>

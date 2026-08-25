@@ -3,7 +3,6 @@ import Button from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import Image from "next/image"
 import Link from "next/link"
 
 export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
@@ -85,13 +84,6 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
 							</div>
 						</div>
 					</form>
-					<div className="relative bg-muted md:block">
-						<Image
-							src="/500.svg"
-							alt="Image"
-							className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-						/>
-					</div>
 				</CardContent>
 			</Card>
 			<div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">

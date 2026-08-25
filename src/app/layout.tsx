@@ -4,7 +4,6 @@ import { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SettingsProvider } from "@/hooks/use-settings";
-import { Toaster } from "@/components/ui/toaster";
 import {
     SITE_NAME,
     SITE_USERNAME,
@@ -24,7 +23,7 @@ import {
 } from "@/utils/metadata";
 import VIEWPORT from "@/utils/viewport";
 import ThemeProvider from "@/components/theme-provider";
-import { CookieToast, MobileMenuProvider, Header, Footer } from "@/components";
+import { MobileMenuProvider } from "@/components";
 import { GeistSans, GeistMono } from "@/fonts/local";
 import LayoutProvider from "@/components/layout-provider";
 
@@ -74,7 +73,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
                                 <Analytics />
                                 <SpeedInsights />
                                 {children}
-                                <Toaster />
                             </LayoutProvider>
                         </MobileMenuProvider>
                     </SettingsProvider>

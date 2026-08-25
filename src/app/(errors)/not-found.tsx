@@ -1,15 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
-import {
-    IconChevronRight,
-    IconRefresh,
-    IconSquareFilled,
-} from "@tabler/icons-react";
 import Button from "@/components/ui/button";
-import { Icon404 } from "@/icons";
 import CrosshairCorner from "@/sections/root/crosshair-corners";
 
 const PageNotFound = () => {
@@ -28,16 +21,6 @@ const PageNotFound = () => {
                 <div className="overflow-visible relative isolate -top-16 flex flex-col justify-center items-center w-full h-fit gap-y-2 p-6 bg-surface border border-dashed border-border">
                     {/* True crosshair corners */}
                     <CrosshairCorner />
-                    <div className="hidden flex-row justify-start items-start gap-x-1.5">
-                        <IconSquareFilled
-                            size={14}
-                            className="text-foreground"
-                        />
-                        <p className="font-mono font-semibold whitespace-nowrap text-foreground text-sm uppercase leading-none items-center translate-y-[0.5px] md:translate-y-0">
-                            Error code 404
-                        </p>
-                    </div>
-
                     <div className="flex flex-col justify-center items-center gap-y-2">
                         <svg
                             width={"180"}
@@ -119,22 +102,9 @@ const PageNotFound = () => {
                             variant="default"
                             size="medium"
                         >
-                            <IconRefresh className="hidden" />
                             Return Home
                         </Button>
-                        <Button
-                            onClick={() => navigateTo("/docs/404")}
-                            variant="tonal"
-                            size="medium"
-                            className="hidden"
-                        >
-                            Learn More
-                            <IconChevronRight />
-                        </Button>
                     </div>
-                </div>
-                <div className="hidden flex-col justify-start items-start w-full h-fit gap-y-2 py-6">
-                    <Icon404 width={192} height={64} />
                 </div>
             </div>
         </section>

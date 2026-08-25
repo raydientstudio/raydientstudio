@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create an account — Raydient Studio</title>
+
+<!-- Geist Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  @font-face {
+    font-family: 'Geist Sans';
+    src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Geist Mono';
+    src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+</style>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com" onload="window.__twLoaded = true"></script>
+<script>
+  // Guard against the CDN script failing to load (network block, ad-blocker, etc.)
+  // so the page doesn't throw and the rest of the DOM still renders.
+  window.tailwind = window.tailwind || { config: {} };
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Geist Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        },
+        colors: {
+          gray: {
+            50: '#fafafa',
+            100: '#f5f5f5',
+            150: '#eeeeee',
+            200: '#e5e5e5',
+            300: '#d4d4d4',
+            400: '#a3a3a3',
+            500: '#737373',
+            600: '#525252',
+            700: '#404040',
+            800: '#262626',
+            900: '#171717',
+            950: '#0a0a0a',
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 2px solid #171717;
+    outline-offset: 2px;
+  }
+</style>
+</head>
+
+<body class="bg-gray-50 text-gray-950 font-sans antialiased">
+
+  <main class="min-h-screen flex items-center justify-center px-6 py-16">
+
+    <div class="w-full max-w-lg justify-center items-center">
+
+      <!-- Auth card -->
+      <div class="relative isolate bg-white border border-solid border-gray-200 rounded-none px-8 py-10 sm:px-10 sm:py-12">
+      <!-- True crosshair corners -->
+      <div class="absolute -top-2.5 -left-2.5 w-5 h-5">
+        <span class="absolute top-1/2 left-0 w-full h-px bg-neutral-300 -translate-y-1/2"></span>
+        <span class="absolute left-1/2 top-0 h-full w-px bg-neutral-300 -translate-x-1/2"></span>
+      </div>
+      <div class="absolute -top-2.5 -right-2.5 w-5 h-5">
+        <span class="absolute top-1/2 left-0 w-full h-px bg-gray-300 -translate-y-1/2"></span>
+        <span class="absolute left-1/2 top-0 h-full w-px bg-gray-300 -translate-x-1/2"></span>
+      </div>
+      <div class="absolute -bottom-2.5 -left-2.5 w-5 h-5">
+        <span class="absolute top-1/2 left-0 w-full h-px bg-gray-300 -translate-y-1/2"></span>
+        <span class="absolute left-1/2 top-0 h-full w-px bg-gray-300 -translate-x-1/2"></span>
+      </div>
+      <div class="absolute -bottom-2.5 -right-2.5 w-5 h-5">
+        <span class="absolute top-1/2 left-0 w-full h-px bg-gray-300 -translate-y-1/2"></span>
+        <span class="absolute left-1/2 top-0 h-full w-px bg-gray-300 -translate-x-1/2"></span>
+      </div>
+        <!-- Logo -->
+        <div class="flex items-center justify-center mb-2">
+          <svg width="36" height="36" viewBox="0 0 22 22" fill="none">
+            <path d="M11 0L22 19H0L11 0Z" fill="#0a0a0a"/>
+          </svg>
+        </div>
+        <!-- Heading -->
+        <h1 class="text-lg font-bold font-sans capitalize tracking-normal text-gray-950 text-center">
+          Create an account
+        </h1>
+        <p class="mt-2 text-sm text-gray-500 text-center">
+          Enter your details to get started.
+        </p>
+
+        <!-- Form -->
+        <form class="mt-8 flex flex-col gap-5">
+          <div class="flex flex-col gap-2">
+            <label for="email" class="font-mono text-sm text-gray-500">
+              Email
+            </label>
+            <div class="relative">
+              <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="14" height="10" rx="2"/>
+                <path d="M2.5 5 9 10l6.5-5"/>
+              </svg>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@company.com"
+                class="h-10 w-full pl-11 pr-4 rounded-full border border-gray-200 bg-white text-sm text-gray-950 placeholder-gray-500 focus:outline-none focus:border-neutral-500 focus:ring-0 transition-colors"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="password" class="font-mono text-sm text-gray-500">
+              Password
+            </label>
+            <div class="relative">
+              <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.5" y="8" width="11" height="7.5" rx="1.5"/>
+                <path d="M5.5 8V5.5a3.5 3.5 0 0 1 7 0V8"/>
+              </svg>
+              <input
+                id="password"
+                type="password"
+                placeholder="••••••••••"
+                class="h-10 w-full pl-11 pr-4 rounded-full border border-gray-200 bg-white text-sm text-gray-950 placeholder-gray-500 focus:outline-none focus:border-black focus:ring-0 transition-colors"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="mt-2 font-mono inline-flex items-center justify-center h-10 w-full rounded-full bg-gray-950 text-white text-sm font-medium hover:bg-gray-800 transition-colors"
+          >
+            Signup
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="relative flex items-center justify-center my-8">
+          <div class="absolute inset-x-0 top-1/2 h-[0.5px] bg-gray-200 -translate-y-1/2"></div>
+          <span class="relative bg-gray-50 text-gray-600 text-sm px-3 py-1 rounded-full">
+            Or continue with
+          </span>
+        </div>
+
+        <!-- OAuth icon row -->
+        <div class="grid grid-cols-3 gap-3">
+          <button type="button" aria-label="Continue with Apple" class="h-10 flex items-center justify-center rounded-full border border-gray-200 hover:border-gray-950 transition-colors">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="#0a0a0a">
+              <path d="M12.7 2.1c.1.9-.3 1.8-.8 2.4-.6.7-1.5 1.2-2.4 1.1-.1-.9.3-1.8.9-2.4.6-.7 1.6-1.2 2.3-1.1ZM14.9 12.4c-.3.7-.5 1-.9 1.6-.6.9-1.4 2-2.4 2-.9 0-1.1-.6-2.3-.6-1.2 0-1.5.6-2.4.6-1 0-1.7-1-2.3-1.9-1.6-2.3-1.8-5-.8-6.4.7-1 1.8-1.6 2.9-1.6 1.1 0 1.8.7 2.7.7.9 0 1.4-.7 2.7-.7.9 0 1.9.5 2.6 1.4-2.3 1.3-1.9 4.6.2 5.9Z"/>
+            </svg>
+          </button>
+
+          <button type="button" aria-label="Continue with Google" class="h-10 flex items-center justify-center rounded-full border border-gray-200 hover:border-gray-950 transition-colors">
+           <svg width="16" height="16" viewBox="0 0 16 16">
+              <path fill="#4285F4" d="M15.68 8.18c0-.57-.05-1.11-.14-1.64H8v3.1h4.3a3.67 3.67 0 0 1-1.6 2.41v2h2.58c1.51-1.39 2.4-3.44 2.4-5.87Z"/>
+              <path fill="#34A853" d="M8 16c2.16 0 3.97-.72 5.29-1.94l-2.58-2c-.72.48-1.63.76-2.71.76-2.08 0-3.85-1.41-4.48-3.3H.86v2.07A8 8 0 0 0 8 16Z"/>
+              <path fill="#FBBC05" d="M3.52 9.52a4.8 4.8 0 0 1 0-3.04V4.41H.86a8 8 0 0 0 0 7.18l2.66-2.07Z"/>
+              <path fill="#EA4335" d="M8 3.18c1.18 0 2.23.4 3.06 1.2l2.29-2.29A7.9 7.9 0 0 0 8 0 8 8 0 0 0 .86 4.41l2.66 2.07C4.15 4.6 5.92 3.18 8 3.18Z"/>
+            </svg>
+          </button>
+
+          <button type="button" aria-label="Continue with Meta" class="h-10 flex items-center justify-center rounded-full border border-gray-200 hover:border-gray-950 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#000">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Footer link -->
+        <p class="mt-8 text-center text-base text-gray-500">
+          Already have an account?
+        </p>
+        <p class="mt-1 text-center">
+          <a href="#" class="text-gray-950 font-semibold font-mono underline">Login</a>
+        </p>
+
+      </div>
+
+      <!-- Legal disclaimer -->
+      <p class="mt-6 text-center text-sm leading-relaxed text-gray-500 max-w-xs">
+        By continuing, you agree to our
+        <a href="#" class="underline hover:text-gray-600">Terms &amp; Conditions</a>
+        and
+        <a href="#" class="underline hover:text-gray-600">Privacy Policy</a>.
+      </p>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

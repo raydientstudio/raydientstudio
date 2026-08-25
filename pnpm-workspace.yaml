@@ -1,13 +1,13 @@
 onlyBuiltDependencies:
-  - sharp
-  - "@tsparticles/engine"
-  - unrs-resolver
+    - sharp
+    - "@tsparticles/engine"
+    - unrs-resolver
 
 ignoredBuiltDependencies:
-  - core-js
+    - core-js
 
 allowBuilds:
-  '@tsparticles/engine': true
-  esbuild: true
-  sharp: true
-  unrs-resolver: true
+    "@tsparticles/engine": true
+    esbuild: true
+    sharp: true
+    unrs-resolver: true

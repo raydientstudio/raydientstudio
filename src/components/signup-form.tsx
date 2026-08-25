@@ -1,84 +1,125 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { IconLockPassword, IconMail } from "@tabler/icons-react";
+import CrosshairCorner from "@/sections/root/crosshair-corners";
+import { IconEmail, IconRiveleStudio } from "@/icons";
+import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 
 export function SignupForm({ className, ...props }: React.ComponentProps<"div">) {
+    // --- Constants ---
+    const Login = "/login";
+
+    // --- Hooks ---
+    const router = useRouter();
+
+    // --- Handlers ---
+    const navigateTo = useCallback((path: string) => router.push(path), [router]);
 	return (
-		<div className={cn("flex flex-col gap-6", className)} {...props}>
-			<Card className="overflow-hidden w-full">
-				<CardContent className="grid p-0 grid-cols-1 md:grid-cols-2">
-					<form className="p-6 md:p-8 w-full">
-						<div className="flex flex-col gap-6">
-							<div className="flex flex-col items-center text-center">
-								<h1 className="text-xl font-bold">We appreciate your interest</h1>
-								<p className="text-sm text-muted-foreground">
-									Signup to your account
-								</p>
-							</div>
-							<div className="grid gap-2">
-								<Label htmlFor="email">Email</Label>
-								<Input id="email" type="email" startIcon={IconMail} placeholder="Enter your email address" required />
-							</div>
-							<div className="grid gap-2">
-								<Label htmlFor="password">Password</Label>
-								<Input id="password" type="password" startIcon={IconLockPassword} placeholder="Set a strong password" required />
-							</div>
-							<Button type="submit" variant="default" size="medium" asWide radius={"small"}>
-								Signup
-							</Button>
-							<div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
-								<span className="relative z-10 bg-background text-muted-foreground px-2 py-1 rounded-sm">
-									Or continue with
-								</span>
-							</div>
-							<div className="grid grid-cols-3 gap-4">
-								<Button aria-label={"Signup with Apple"} variant="outline" size="medium" asWide radius={"small"}>
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										<path
-											d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
-											fill="currentColor"
-										/>
-									</svg>
-								</Button>
-								<Button aria-label={"Signup with Google"} variant="outline" size="medium" asWide radius={"small"}>
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										<path
-											d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
-											fill="currentColor"
-										/>
-									</svg>
-								</Button>
-								<Button aria-label={"Signup with Meta"} variant="outline" size="medium" asWide radius={"small"}>
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										<path
-											d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"
-											fill="currentColor"
-										/>
-									</svg>
-								</Button>
-							</div>
-							<div className="flex flex-col leading-[1.3] text-center text-sm text-muted-foreground">
-								Already have an account?{" "}
-								<Link href="/login" className="text-base font-medium text-foreground">
-									Login
-								</Link>
-							</div>
-						</div>
-					</form>
-					<div className="relative bg-muted md:block">
-						<Image src="/404.svg" alt="Image" className="absolute inset-0 h-full w-full object-cover" />
-					</div>
-				</CardContent>
-			</Card>
-			<div className="text-balance text-center text-xs text-muted-foreground">
-				By continuing, you agree to our <Link href="/docs/terms-and-conditions" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">Terms & Conditions</Link>{" "}
-				and <Link href="/docs/privacy-policy" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors duration-250 ease-in-out">Privacy Policy</Link>.
-			</div>
+        <div className={cn("flex flex-col gap-6 py-10 md:py-12", className)} {...props}>
+            <div className="w-full max-w-xl justify-center items-center">
+              <div className="relative isolate bg-surface border border-solid border-border rounded-none w-full px-6 md:px-8 py-10 md:py-12">
+              <CrosshairCorner />
+                <IconRiveleStudio size={36} className="mb-2"/>
+                <h1 className="text-lg font-bold font-sans capitalize tracking-normal text-gray-950 text-center">
+                  Create an account
+                </h1>
+                <p className="mt-2 text-sm text-muted-foreground text-center">
+                  Enter your details to get started.
+                </p>
+                <form className="mt-8 flex flex-col gap-5">
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="email">
+                        Email
+                    </Label>
+                    <Input type="email" placeholder="you@company.com" leadingIcon={ <IconEmail/> } />
+                    <div className="relative hidden">
+                      <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="14" height="10" rx="2"/>
+                        <path d="M2.5 5 9 10l6.5-5"/>
+                      </svg>
+                      <input
+                        id="email"
+                        type="email"
+                        placeholder="you@company.com"
+                        className="h-10 w-full pl-11 pr-4 rounded-full border border-border bg-surface text-sm text-gray-950 placeholder-gray-500 focus:outline-none focus:border-neutral-500 focus:ring-0 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="password" className="font-mono text-sm text-muted-foreground">
+                      Password
+                    </label>
+                    <div className="relative">
+                      <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3.5" y="8" width="11" height="7.5" rx="1.5"/>
+                        <path d="M5.5 8V5.5a3.5 3.5 0 0 1 7 0V8"/>
+                      </svg>
+                      <input id="password"
+                        type="password"
+                        placeholder="••••••••••"
+                        className="h-10 w-full pl-11 pr-4 rounded-full border border-border bg-surface text-sm text-gray-950 placeholder-gray-500 focus:outline-none focus:border-black focus:ring-0 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <Button type="submit" size="large">
+                    Signup
+                  </Button>
+                </form>
+
+                <div className="relative flex items-center justify-center my-8">
+                  <div className="absolute inset-x-0 top-1/2 h-[0.5px] bg-border -translate-y-1/2"></div>
+                  <span className="relative bg-accent text-muted-foreground text-sm font-mono tracking-tight px-3 py-1 rounded-full">
+                    Or continue with
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-3 gap-3">
+                  <Button type="button" aria-label="Continue with Apple" variant="outline" size="large" asWide>
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="#0a0a0a">
+                          <path d="M12.7 2.1c.1.9-.3 1.8-.8 2.4-.6.7-1.5 1.2-2.4 1.1-.1-.9.3-1.8.9-2.4.6-.7 1.6-1.2 2.3-1.1ZM14.9 12.4c-.3.7-.5 1-.9 1.6-.6.9-1.4 2-2.4 2-.9 0-1.1-.6-2.3-.6-1.2 0-1.5.6-2.4.6-1 0-1.7-1-2.3-1.9-1.6-2.3-1.8-5-.8-6.4.7-1 1.8-1.6 2.9-1.6 1.1 0 1.8.7 2.7.7.9 0 1.4-.7 2.7-.7.9 0 1.9.5 2.6 1.4-2.3 1.3-1.9 4.6.2 5.9Z"/>
+                      </svg>
+                  </Button>
+
+                  <Button type="button" aria-label="Continue with Google" variant="outline" size="large" asWide>
+                   <svg width="16" height="16" viewBox="0 0 16 16">
+                      <path fill="#4285F4" d="M15.68 8.18c0-.57-.05-1.11-.14-1.64H8v3.1h4.3a3.67 3.67 0 0 1-1.6 2.41v2h2.58c1.51-1.39 2.4-3.44 2.4-5.87Z"/>
+                      <path fill="#34A853" d="M8 16c2.16 0 3.97-.72 5.29-1.94l-2.58-2c-.72.48-1.63.76-2.71.76-2.08 0-3.85-1.41-4.48-3.3H.86v2.07A8 8 0 0 0 8 16Z"/>
+                      <path fill="#FBBC05" d="M3.52 9.52a4.8 4.8 0 0 1 0-3.04V4.41H.86a8 8 0 0 0 0 7.18l2.66-2.07Z"/>
+                      <path fill="#EA4335" d="M8 3.18c1.18 0 2.23.4 3.06 1.2l2.29-2.29A7.9 7.9 0 0 0 8 0 8 8 0 0 0 .86 4.41l2.66 2.07C4.15 4.6 5.92 3.18 8 3.18Z"/>
+                    </svg>
+                  </Button>
+
+                  <Button type="button" aria-label="Continue with Meta" variant="outline" size="large" asWide>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#000">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+                    </svg>
+                  </Button>
+                </div>
+
+                <p className="mt-8 text-center text-base text-muted-foreground">
+                  Already have an account?
+                </p>
+                <p className="mt-1 text-center">
+                    <Link href={Login} className="text-foreground font-semibold font-mono underline">Login</Link>
+                </p>
+
+              </div>
+
+              <p className="mt-6 text-center text-sm leading-relaxed text-muted-foreground max-w-xs">
+                By continuing, you agree to our{" "}
+                <a href="#" className="underline hover:text-foreground">Terms &amp; Conditions</a>{" "}
+                and{" "}
+                <a href="#" className="underline hover:text-foreground">Privacy Policy</a>.
+              </p>
+
+            </div>
 		</div>
 	)
 }

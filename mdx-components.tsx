@@ -1,6 +1,6 @@
-import type { MDXComponents } from "mdx/types";
-import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import type { MDXComponents } from "mdx/types";
 
 const components: MDXComponents = {
     h1: ({ children, className, ...props }: {children: ReactNode, className: string}) => (
